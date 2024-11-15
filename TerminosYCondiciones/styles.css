@@ -100,7 +100,7 @@ main {
 
 .AD
 {
-    color:#FF929D;
+    color:#ffffff;
     font-size: 50px;
  
 }
@@ -108,33 +108,27 @@ main {
 
 .p1
 {
-    color:#FF5F5F;
-    font-size: 25px;
+    color: white;
+    font-size: 35px;
     margin: 25px;
 }
-.p2
+li
 {
-    color:#FFAC37;
-    font-size: 25px;
+    color: white;
+    font-size: 35px;
     margin: 25px;
+}
+ol
+{
+    color: white;
+    font-size: 35px;
+    margin: 25px;
+}
 
-}
-.p3
-{
-    color:#75FF63;
-    font-size: 25px;
-    margin: 25px;
-}
-.p4
-{
-    color:#2268FF;
-    font-size: 25px;
-    margin: 25px;
-}
 
 body {
     background: rgb(17,0,0);
-    background: linear-gradient(180deg, rgba(17,0,0,1) 0%, rgba(119,2,2,1) 90%);
+    background: linear-gradient(180deg, rgb(187, 187, 187) 0%, rgb(51, 51, 51) 90%);
     font-family: Arial, sans-serif;
     line-height: 1.6;
     color: #333; 
@@ -155,25 +149,4 @@ body::before {
     background-repeat: no-repeat;
     opacity: 0.2; /* Controla la opacidad aquí */
     z-index: -1; /* Mantiene la imagen detrás del contenido */
-}
-
-
-
-/*BOTON CONTACTANOS*/
-.float{
-	position:fixed;
-	width: 20%;
-	height:60px;
-	bottom:20px;
-	right:10px;
-	background-color:#DA3636;
-    font-size: 35px;
-	color:#FFF;
-	border-radius:30px;
-	text-align:center;
-	box-shadow: 2px 2px 3px #999;
-}
-
-.my-float{
-	margin-top:22px;
 }

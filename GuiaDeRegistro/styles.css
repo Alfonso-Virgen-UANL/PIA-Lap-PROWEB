@@ -98,82 +98,46 @@ main {
     text-align: left;
 }
 
-.AD
+.Borde
 {
-    color:#FF929D;
-    font-size: 50px;
- 
+    background-color: #D9D9D9;
+    color: black;
+    border-radius: 25px;
+    height: auto;
+    width: auto;
+}
+
+.TextoNegro
+{  
+    text-align: center;
+    font-weight: bold;
+    text-align: left;
+    padding: 20px;
+}
+.TextoRojo
+{  
+    text-align: center;
+    font-weight: bold;
+    color: red;
+}
+
+.Separador
+{
+    padding: 50px;
 }
 
 
-.p1
-{
-    color:#FF5F5F;
-    font-size: 25px;
-    margin: 25px;
-}
-.p2
-{
-    color:#FFAC37;
-    font-size: 25px;
-    margin: 25px;
-
-}
-.p3
-{
-    color:#75FF63;
-    font-size: 25px;
-    margin: 25px;
-}
-.p4
-{
-    color:#2268FF;
-    font-size: 25px;
-    margin: 25px;
+.Separador td:first-child {
+    border-right: 2px solid red; /* Borde derecho de la columna izquierda */
 }
 
 body {
     background: rgb(17,0,0);
-    background: linear-gradient(180deg, rgba(17,0,0,1) 0%, rgba(119,2,2,1) 90%);
+    background: linear-gradient(180deg, rgba(17,0,0,1) 0%, rgba(119,2,2,1) 100%);
     font-family: Arial, sans-serif;
     line-height: 1.6;
     color: #333; 
     position: relative;
     min-height: 100vh; /* Asegura que el body tenga al menos la altura de la ventana */
     margin: 0;
-}
-
-body::before {
-    content: "";
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-image: url("FondoAcercaDe.png");
-    background-size:cover;
-    background-repeat: no-repeat;
-    opacity: 0.2; /* Controla la opacidad aquí */
-    z-index: -1; /* Mantiene la imagen detrás del contenido */
-}
-
-
-
-/*BOTON CONTACTANOS*/
-.float{
-	position:fixed;
-	width: 20%;
-	height:60px;
-	bottom:20px;
-	right:10px;
-	background-color:#DA3636;
-    font-size: 35px;
-	color:#FFF;
-	border-radius:30px;
-	text-align:center;
-	box-shadow: 2px 2px 3px #999;
-}
-
-.my-float{
-	margin-top:22px;
 }
