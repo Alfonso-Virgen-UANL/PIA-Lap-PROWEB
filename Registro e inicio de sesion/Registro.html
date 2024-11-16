@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Albumify - Acerca de</title>
+    <link rel="stylesheet" href="style2.css">
+</head>
+
+<body>
+    <header>
+        <nav>
+            <table class="NavTab">
+                <tr>
+                    <td rowspan="3"><img src="AlbumifyLogo.png" class="logo"></td>
+                    <td rowspan="1"><input type="text" placeholder="🔎¿Qué quieres buscar?" class="busqueda"></td>
+                    <td rowspan="3">  
+                        <a href="catalogo.html" class="NavMedio"> Catálogo</a>   
+                        <a href="acerca_de.html" class="NavMedio2">| Acerca de</a>
+                    </td>
+                    <td rowspan="3" class="fill"></td>
+                    <td rowspan="3">
+                        <a href="Login.html" class="NavDer">Login</a> 
+                        <a href="Registro.html" class="NavDer2">| Registro</a>
+                    </td>
+                </tr>
+                <tr>
+                  <td><a href="index.html" class="TextoNav">| Home</a></td>
+                </tr>
+              </table>
+        </nav>
+    </header>
+
+    <main>
+        <div class="container">
+            <h2>Registro</h2>
+            <form action="registro.html" method="POST">
+              <div class="form-group">
+                <label for="username">Nombre de usuario</label>
+                <input type="text" id="username" name="username" required>
+              </div>
+              <div class="form-group">
+                <label for="email">E-mail</label>
+                <input type="email" id="email" name="email" required>
+              </div>
+              <div class="form-group password-toggle">
+                <label for="password">Contraseña</label>
+                <input type="password" id="password" name="password" required>
+                <button type="button" onclick="togglePassword('password')">👁</button>
+              </div>
+              <div class="form-group password-toggle">
+                <label for="confirm-password">Confirmar contraseña</label>
+                <input type="password" id="confirm-password" name="confirm-password" required>
+                <button type="button" onclick="togglePassword('confirm-password')">👁</button>
+              </div>
+              <div class="form-group">
+                <input type="checkbox" id="terms" name="terms" required>
+                <label class="checkbox-label" for="terms">Acepto los Términos y condiciones</label>
+              </div>
+              <div class="form-group captcha">
+                <input type="checkbox" id="captcha" name="captcha" required>
+                <label for="captcha">I'm not a robot</label>
+              </div>
+              <button type="submit">Registrarse</button>
+            </form>
+            <div class="links">
+              <p>¿Ya tienes una cuenta? <a href="login.html">Inicia sesión</a></p>
+            </div>
+          </div>
+        
+          <script>
+            function togglePassword(fieldId) {
+              const field = document.getElementById(fieldId);
+              if (field.type === "password") {
+                field.type = "text";
+              } else {
+                field.type = "password";
+              }
+            }
+          </script>
+</body>
+</html>        
