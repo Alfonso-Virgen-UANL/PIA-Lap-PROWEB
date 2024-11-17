@@ -9,7 +9,6 @@
 a:visited 
 {
     text-decoration: none;
-    decoration: none; 
 }
 
 .logo
@@ -39,10 +38,6 @@ a:visited
 .NavTab 
 {  
     width:100%;
-}
-.NavTab tr td
-{  
-
 }
 
 .TextoNav
