@@ -4,13 +4,16 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Albumify - Registro</title>
-    <link rel="stylesheet" href="styleslogin.css">
+    <link rel="stylesheet" href="StylesReg.css">
     <link rel="stylesheet" href="bootstrap.min.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap" rel="stylesheet">
     <!-- Enlace a Font Awesome -->
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    
+    <!-- Agregar el script de Google reCAPTCHA -->
+    <script src="https://www.google.com/recaptcha/api.js" async defer></script>
 </head>
 
 <body>
@@ -35,33 +38,69 @@
     </header>
     <div id="todo">
         <main>
-            <div id="sesi" class="row">
-                <form action="registro.html" method="POST">
-                    <label id="titu">Registro</label><br>
-                    <label for="username">Nombre de usuario</label><br>
-                    <input class="inp" type="text" id="username" name="username" required><br>
-                    <label for="email">E-mail</label><br>
-                    <input class="inp" type="email" id="email" name="email" required><br>
-                    <label for="password">Contraseña</label><br>
-                    <div class="password-container">
-                        <input class="inp" type="password" id="password" name="password" required>
-                        <i class="fa-solid fa-eye toggle-password" onclick="togglePassword('password')" style="cursor: pointer; margin-left: 8px;"></i>
-                    </div><br>
-                    <label for="confirm-password">Confirmar contraseña</label><br>
-                    <div class="password-container">
-                        <input class="inp" type="password" id="confirm-password" name="confirm-password" required>
-                        <i class="fa-solid fa-eye toggle-password" onclick="togglePassword('confirm-password')" style="cursor: pointer; margin-left: 8px;"></i>
-                    </div><br>
-                    <input class="md-3" id="bot" type="submit" value="Registrarse">
-                </form>
-            </div>
+            <table  class="separador">
+                <tr>
+                    <td>
+                        <div id="sesi" class="row">
+                            <form action="registro.html" method="POST">
+                                <label id="titu">Registro</label><br>
+            
+                                <label for="username">Nombre de usuario</label><br>
+                                <input class="inp" type="text" id="username" name="username" required><br>
+                                <label for="email">E-mail</label><br>
+                                <input class="inp" type="email" id="email" name="email" required><br>
+                                <label for="password">Contraseña</label><br>
+                                <div class="password-container">
+                                    <input class="inp" type="password" id="password" name="password" required>
+                                    <i class="fa-solid fa-eye toggle-password" onclick="togglePassword('password')" style="cursor: pointer; margin-left: 8px;"></i>
+                                </div><br>
+                                <label for="confirm-password">Confirmar contraseña</label><br>
+                                <div class="password-container">
+                                    <input class="inp" type="password" id="confirm-password" name="confirm-password" required>
+                                    <i class="fa-solid fa-eye toggle-password" onclick="togglePassword('confirm-password')" style="cursor: pointer; margin-left: 8px;"></i>
+                                </div><br>
+                                
+                              
+                                
+                                <input class="md-3" id="bot" type="submit" value="Registrarse">
+                            </form>
+                        </div>
+                    </td>
+                    
+                    <td class="TyCCaptcha">
+                        <a href="/GuiaDeRegistro/GuiaRegistro(NR).html" class="float">Guía Basica
+                        <i class="my-float"></i>
+                        </a>
+
+                            <br>
+                            <div class="terminos">
+                                <table>
+                                    <tr>
+                                        <td class="EspacioCB">
+                                            <input class="md-3" id="terminos" type="checkbox" required> 
+                                        </td>
+                                        <td>
+                                            <label id="terminosT">Acepto los  <a href="/TerminosYCondiciones/Contactanos(NR).html">Términos y Condiciones</a></label>
+                                        </td>
+                                    </tr>
+                                    
+                                </table>
+                                   
+                            </div>
+                            <!-- Aquí agregas el reCAPTCHA -->
+                            <div class="g-recaptcha" data-sitekey="TU_CLAVE_PUBLICA_DE_RECAPTCHA"></div>
+
+                            <div id="parr">
+                                <p>¿Ya tienes una cuenta? <a id="crea" href="login.html">Inicia sesión!</a></p>
+                            </div>
+                            <br>
+                        </form>
+                    </td>
+                </tr>
+            </table>
         </main>
-        <footer>
-            <div id="parr">
-                <p>¿Ya tienes una cuenta? <a id="crea" href="login.html">Inicia sesión</a></p>
-            </div>
-        </footer>
     </div>
+    
     <script>
         function togglePassword(fieldId) {
             const field = document.getElementById(fieldId);
