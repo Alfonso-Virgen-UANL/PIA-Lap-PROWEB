@@ -1,6 +1,4 @@
 
-
-
 /*BARRA DE NAVEGACIÓN---------------------*/
 a:visited 
 {
@@ -85,23 +83,25 @@ header .logo {
 
 /*BODY*/
 main {
-    background-color: rgb(219, 217, 216);
-    padding: 20px;
-    margin: 20px;
+    padding: 40px;
     text-align: left;
 }
 
-h1 {
-    color: rgb(190, 100, 100);
+#titu {
+    color: rgb(204, 108, 108);
+    font-weight: bold;
+    font-size: 125%;
 }
 
 form {
-    color: rgb(71, 17, 17);
-    font-size: 150%;
+    padding: 20px;
+    margin: 20px;
+    color: rgb(95, 22, 22);
+    font-size: 250%;
 }
 
 label {
-    color: rgb(169, 73, 73);
+    color: rgb(141, 29, 29);
     font-weight: 450;
 }
 
@@ -114,15 +114,42 @@ label {
 #bot {
     background-color: rgb(75, 18, 18);
     color: #fff;
-    width: 25%;
     border-radius: 5px;
     border: none;
     text-align: center;
-    margin-left: .75em;
+    margin-left: .5em;
+    width: 12em;
 }
 
-div {
+main,footer {
+    background: rgb(219, 217, 216);
     font-family: "Inter", sans-serif;
     font-optical-sizing: auto;
     font-style: normal;
   }
+
+p {
+    color: rgb(141, 29, 29);
+}
+
+#sesi {
+    text-align: left;
+}
+
+/*un div con el main y el footer*/
+#todo {
+    background-color: rgb(219, 217, 216);
+    position: relative;
+    min-height: 40em; /* Asegura que el body tenga al menos la altura de la ventana */
+}
+
+#crea {
+    font-weight: bold;
+    text-decoration: none;
+    color: rgb(141, 29, 29);
+}
+
+footer {
+    font-size: xx-large;
+    text-align: center;
+}
