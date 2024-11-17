@@ -141,6 +141,11 @@ p {
     background-color: rgb(219, 217, 216);
     position: relative;
     min-height: 40em; /* Asegura que el body tenga al menos la altura de la ventana */
+    height: 100%;
+    width: 100%;
+    height: 100vh;
+    width: 100vw;
+    margin: 0;
 }
 
 #crea {

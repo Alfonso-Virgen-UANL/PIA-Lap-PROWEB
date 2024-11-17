@@ -91,143 +91,79 @@ header .logo {
     font-weight: bold;
 }
 
-/*BODY*/
 main {
+    padding: 40px;
+    text-align: left;
+}
+
+.titu {
+    color: rgb(204, 108, 108);
+    font-weight: bold;
+    font-size: 125%;
+}
+
+form {
     padding: 20px;
-    text-align: center;
     margin: 20px;
+    color: rgb(95, 22, 22);
+    font-size: 250%;
+}
+
+label {
+    color: rgb(141, 29, 29);
+    font-weight: 450;
+}
+
+.inp {
+    background-color: rgba(240, 128, 128, 0.715);
+    border-radius: 5px;
+    border: none;
+}
+
+#bot {
+    background-color: rgb(75, 18, 18);
+    color: #fff;
+    border-radius: 5px;
+    border: none;
+    text-align: center;
+    margin-left: .5em;
+    width: 12em;
+}
+
+main,footer {
+    background: rgb(219, 217, 216);
+    font-family: "Inter", sans-serif;
+    font-optical-sizing: auto;
+    font-style: normal;
+  }
+
+p {
+    color: rgb(141, 29, 29);
+}
+
+#sesi {
     text-align: left;
 }
 
-.Borde
-{
-    background-color: #D9D9D9;
-    color: black;
-    border-radius: 25px;
-    height: auto;
-    width: auto;
-}
-
-.TextoNegro
-{  
-    text-align: center;
-    font-weight: bold;
-    text-align: left;
-    padding: 20px;
-}
-.TextoRojo
-{  
-    text-align: center;
-    font-weight: bold;
-    color: red;
-}
-
-.Separador
-{
-    padding: 50px;
-}
-
-
-.Separador td:first-child {
-    border-right: 2px solid red; /* Borde derecho de la columna izquierda */
-} 
-
-  .container {
-    width: 100%;
-    max-width: 400px;
-    margin: 50px auto;
-    background: #dbdada;
-    padding: 20px;
-    border-radius: 10px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-  }
-  
-  .container h2 {
-    text-align: center;
-    color: #b05858;
-  }
-  
-  .form-group {
-    margin-bottom: 15px;
-  }
-  
-  .form-group label {
-    display: block;
-    margin-bottom: 5px;
-    color: #333;
-  }
-  
-  .form-group input {
-    width: calc(100% - 40px);
-    padding: 8px;
-    margin-right: 5px;
-    border: 1px solid #e06969;
-    border-radius: 5px;
-  }
-  
-  .password-toggle {
+/*un div con el main y el footer*/
+#todo {
+    background-color: rgb(219, 217, 216);
     position: relative;
-    display: inline-block;
-  }
-  
-  .password-toggle button {
-    position: absolute;
-    top: 50%;
-    right: 10px;
-    transform: translateY(-50%);
-    background: none;
-    border: none;
-    cursor: pointer;
-  }
-  
-  .form-group input[type="checkbox"] {
-    width: auto;
-  }
-  
-  .form-group .checkbox-label {
-    display: inline-block;
-    margin-left: 5px;
-  }
-  
-  .form-group .captcha {
-    display: flex;
-    align-items: center;
-  }
-  
-  button[type="submit"] {
+    min-height: 40em; /* Asegura que el body tenga al menos la altura de la ventana */
+    height: 100%;
     width: 100%;
-    padding: 10px;
-    background-color: #a62323;
-    color: white;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-  }
-  
-  button[type="submit"]:hover {
-    background-color: #871d1d;
-  }
-  
-  .links {
-    text-align: center;
-    margin-top: 10px;
-  }
-  
-  .links a {
-    color: #a62323;
-    text-decoration: none;
-    font-weight: bold;
-  }
-  body {
-    background: rgb(17,0,0);
-    background: linear-gradient(180deg, rgba(17,0,0,1) 0%, rgba(119,2,2,1) 100%);
-    font-family: Arial, sans-serif;
-    line-height: 1.6;
-    color: #333; 
-    position: relative;
-    min-height: 100vh; /* Asegura que el body tenga al menos la altura de la ventana */
+    height: 100vh;
+    width: 100vw;
     margin: 0;
 }
 
-  
-  
+#crea {
+    font-weight: bold;
+    text-decoration: none;
+    color: rgb(141, 29, 29);
+}
+
+footer {
+    font-size: xx-large;
+    text-align: center;
+}
