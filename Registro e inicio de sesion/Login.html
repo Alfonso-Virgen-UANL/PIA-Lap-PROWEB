@@ -4,11 +4,13 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Albumify - Acerca de</title>
-    <link rel="stylesheet" href="style2.css">
+    <link rel="stylesheet" href="styleslogin.css">
     <link rel="stylesheet" href="bootstrap.min.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap" rel="stylesheet">
+    <!-- Enlace a Font Awesome -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
 </head>
 
 <body>
@@ -32,17 +34,41 @@
               </table>
         </nav>
     </header>
+    <div id="todo">
     <main>
-        <div class="inter,row">
-            <h1 class="titu, mb-12">Inicio de Sesión</h1>
+        <div id="sesi" class="row">
             <form action="">
+                <label id="titu">Inicio de Sesión</label><br>
                 <label for="uemail">E-mail</label><br>
                 <input class="inp" type="email" id="uemail" name="uemail"><br>
                 <label for="ucont">Contraseña</label><br>
-                <input class="inp" type="text" id="ucont" name="ucont"><br><br>
-                <input id="bot" type="submit" value="Iniciar sesión">
+                <div class="password-container">
+                    <input class="inp" type="password" id="ucont" name="ucont">
+                    <i class="fa-solid fa-eye toggle-password" onclick="togglePassword('ucont')" style="cursor: pointer; margin-left: 8px;"></i>
+                </div><br><br>
+                <input class="md-3" id="bot" type="submit" value="Iniciar sesión">
             </form>
         </div> 
     </main>
+    <footer>
+        <div id="parr"><p>¿Aún no has creado una cuenta? <a id="crea" href="Registro.html">Crea una ahora!</a></p>
+        </div>
+    </footer>
+    </div>
+    <script>
+        function togglePassword(fieldId) {
+            const field = document.getElementById(fieldId);
+            const icon = field.nextElementSibling;
+            if (field.type === "password") {
+                field.type = "text";
+                icon.classList.remove("fa-eye");
+                icon.classList.add("fa-eye-slash");
+            } else {
+                field.type = "password";
+                icon.classList.remove("fa-eye-slash");
+                icon.classList.add("fa-eye");
+            }
+        }
+    </script>
 </body>
 </html>
