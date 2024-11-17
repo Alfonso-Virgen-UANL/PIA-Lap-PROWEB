@@ -1,0 +1,128 @@
+
+
+
+/*BARRA DE NAVEGACIÓN---------------------*/
+a:visited 
+{
+    text-decoration: none;
+    decoration: none; 
+}
+
+.logo
+{
+    width: 150px;
+    margin-left: 20px;
+    margin-right: 0px;
+}
+
+.busqueda
+{
+    border-radius: 25px;
+    background: #2E2929;
+    padding: 20px;
+    width: 400px;
+    height: 40px;
+    margin-top: 50px;
+    margin-left: 20px;
+    margin-right: 30px;
+}
+
+.fill
+{
+    width: 40%;
+}
+
+.NavTab 
+{  
+    width:100%;
+}
+
+.TextoNav
+{
+    color: #FFFFFF;
+    font-size: 140%;
+    margin-left: 20px;
+    margin-bottom: 30px;
+}
+
+.NavMedio
+{
+    color: #FFFFFF;
+    font-size: 160%;
+    margin-left: 30px;
+    margin-top: 45px;
+    
+}
+.NavMedio2
+{
+    color: #FFFFFF;
+    font-size: 160%;
+    margin-top: 45px;
+    
+}
+
+.NavDer
+{
+    color: #FFFFFF;
+    font-size: 160%;
+}
+.NavDer2
+{
+    color: #FFFFFF;
+    font-size: 160%;
+}
+
+header {
+    background: rgb(214,60,55);
+    background: linear-gradient(90deg, rgba(214,60,55,1) 0%, rgba(111,14,11,1) 71%);
+    color: #fff;
+    padding: 10px 0;
+}
+header .logo {
+    font-size: 24px;
+    font-weight: bold;
+}
+
+/*BODY*/
+main {
+    background-color: rgb(219, 217, 216);
+    padding: 20px;
+    margin: 20px;
+    text-align: left;
+}
+
+h1 {
+    color: rgb(190, 100, 100);
+}
+
+form {
+    color: rgb(71, 17, 17);
+    font-size: 150%;
+}
+
+label {
+    color: rgb(169, 73, 73);
+    font-weight: 450;
+}
+
+.inp {
+    background-color: rgba(240, 128, 128, 0.715);
+    border-radius: 5px;
+    border: none;
+}
+
+#bot {
+    background-color: rgb(75, 18, 18);
+    color: #fff;
+    width: 25%;
+    border-radius: 5px;
+    border: none;
+    text-align: center;
+    margin-left: .75em;
+}
+
+div {
+    font-family: "Inter", sans-serif;
+    font-optical-sizing: auto;
+    font-style: normal;
+  }
