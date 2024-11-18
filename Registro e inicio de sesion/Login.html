@@ -9,6 +9,8 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap" rel="stylesheet">
+    <!-- Enlace a Font Awesome -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
 </head>
 
 <body>
@@ -40,7 +42,10 @@
                 <label for="uemail">E-mail</label><br>
                 <input class="inp" type="email" id="uemail" name="uemail"><br>
                 <label for="ucont">Contraseña</label><br>
-                <input class="inp" type="text" id="ucont" name="ucont"><br><br>
+                <div class="password-container">
+                    <input class="inp" type="password" id="ucont" name="ucont">
+                    <i class="fa-solid fa-eye toggle-password" onclick="togglePassword('ucont')" style="cursor: pointer; margin-left: 8px;"></i>
+                </div><br><br>
                 <input class="md-3" id="bot" type="submit" value="Iniciar sesión">
             </form>
         </div> 
@@ -50,5 +55,20 @@
         </div>
     </footer>
     </div>
+    <script>
+        function togglePassword(fieldId) {
+            const field = document.getElementById(fieldId);
+            const icon = field.nextElementSibling;
+            if (field.type === "password") {
+                field.type = "text";
+                icon.classList.remove("fa-eye");
+                icon.classList.add("fa-eye-slash");
+            } else {
+                field.type = "password";
+                icon.classList.remove("fa-eye-slash");
+                icon.classList.add("fa-eye");
+            }
+        }
+    </script>
 </body>
 </html>

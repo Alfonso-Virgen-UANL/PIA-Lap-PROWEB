@@ -5,7 +5,6 @@ a:visited
     text-decoration: none;
     decoration: none; 
 }
-
 .logo
 {
     width: 150px;
@@ -134,6 +133,7 @@ p {
 
 #sesi {
     text-align: left;
+    padding-left: 15%;
 }
 
 /*un div con el main y el footer*/
@@ -157,4 +157,79 @@ p {
 footer {
     font-size: xx-large;
     text-align: center;
+}
+
+.terminos
+{
+    background-color: #FFFFFF;
+    border-radius: 70px;
+    margin: 15%;
+    padding: 5%;
+    font-size: 30px;
+    margin-top: 30%;
+}
+
+#terminos
+{
+    padding-left: 20%;
+}
+
+.Guia
+{
+    background-color: #671E1E;
+    border-radius: 52px;
+    color: #FFFFFF;
+    font-size: 80px;
+    height: 160%;
+    font-size: 120%;
+}
+
+.TyCCaptcha
+{
+    width: auto;
+}
+
+.md-3#terminos
+{      
+    transform: scale(4);
+    margin-left: 30%;
+}
+
+.EspacioCB
+{
+    width: 20%;
+}
+.g-recaptcha
+{
+    margin-left: 35%;
+}
+
+#parr
+{
+    padding-top: 10%;
+    font-size: 320%;
+    margin: 10%;
+}
+
+.float{
+	position:absolute;
+	width: 15%;
+	height:7%;
+	bottom:90%;
+	right: 1%;
+	background-color:#671E1E;
+    font-size: 35px;
+	color:#FFF;
+	border-radius:30px;
+	text-align:center;
+	box-shadow: 2px 2px 3px #999;
+}
+
+.my-float{
+	margin-top:22px;
+}
+
+.separador
+{
+    width: 100%;
 }
