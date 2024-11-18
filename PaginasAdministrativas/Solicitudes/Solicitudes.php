@@ -1,9 +1,15 @@
+<?php
+include 'conexion.php'; // Conectar a la base de datos
+
+$consulta = "SELECT * FROM usuario"; 
+$resultado = $conexion->query($consulta);
+?>
 <!DOCTYPE html>
 <html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Albumfy - Gestor de Albumes</title>
+    <title>Albumfy - Solicitudes</title>
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
@@ -41,11 +47,11 @@
         </aside>
 
         <main class="content">
-            <h2>Gestión de Albumes</h2>
+            <h2>Solicitudes de Albumes</h2>
             <div class="top-bar">
                 
                 <div class="search-bar">
-                    <input type="text" id="search" placeholder="Buscar por ID, genero o nombre" />
+                    <input type="text" id="search" placeholder="Buscar por ID, nombre o genero" />
                     <button class="btn-search">Buscar</button>
                 </div>
                 <button class="btn-add">Agregar</button>
@@ -54,38 +60,35 @@
                 <thead>
                     <tr>
                         <th>ID</th>
+                        <th>Usuario</th>
                         <th>Album</th>
                         <th>Genero</th>
                         <th>Duración</th>
                         <th>Descripción</th>
                         <th>Foto</th>
-                        <th>Acciones</th>
+                        <th>Aceptar</th>
                     </tr>
                 </thead>
                 <tbody>
                     <tr>
                         <td>1</td>
+                        <td>NiceRem</td>
                         <td>Swiming</td>
                         <td>HipHop</td>
                         <td>10:20</td>
                         <td>Lorem ipsum, dolor sit amet consectetur</td>
                         <td>Foto</td>
-                        <td>
-                            <button class="btn-edit">Editar</button>
-                            <button class="btn-delete">Eliminar</button>
-                        </td>
+                        <td><input type="checkbox" id="1" value="Solchkbx1"/></td>
                     </tr>
                     <tr>
                         <td>2</td>
+                        <td>VegQuick</td>
                         <td>Nectar</td>
                         <td>ryb</td>
                         <td>10:20</td>
                         <td>Lorem ipsum, dolor sit amet consectetur</td>
                         <td>Foto</td>
-                        <td>
-                            <button class="btn-edit">Editar</button>
-                            <button class="btn-delete">Eliminar</button>
-                        </td>
+                        <td><input type="checkbox" id="2" value="Solchkbx2"/></td>
                     </tr>
                 </tbody>
             </table>
