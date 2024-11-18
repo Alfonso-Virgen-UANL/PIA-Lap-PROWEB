@@ -288,5 +288,31 @@ h2{
 }
 
 h3 {
+    padding-bottom: 1em;
+    width: 150%;
     color: white;
+}
+
+#cambcont {
+    margin-left: 6em;
+}
+
+.inp {
+    width: 15em;
+}
+
+#bot {
+    color: white;
+    background-color: rgb(0, 0, 0);
+    border-radius: 15px;
+    border: none;
+    text-align: center;
+    width: 12em;
+    height: 2em;
+    font-family: Arial, sans-serif;
+    margin-left: 1.5em;
+}
+
+.labelconf {
+    padding-left: 1em;
 }
