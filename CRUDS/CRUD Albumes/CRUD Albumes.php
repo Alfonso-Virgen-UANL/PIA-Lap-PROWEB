@@ -1,7 +1,7 @@
 <?php
 include 'conexion.php'; // Conectar a la base de datos
 
-$consulta = "SELECT * FROM albumes"; 
+$consulta = "SELECT * FROM albumes WHERE estado=1"; 
 $resultado = $conexion->query($consulta);
 ?>
 <!DOCTYPE html>
@@ -51,10 +51,13 @@ $resultado = $conexion->query($consulta);
             <h2>Gestión de Albumes</h2>
             <div class="top-bar">
                 
-                <div class="search-bar">
-                    <input type="text" id="search" placeholder="Buscar por ID, genero o nombre" />
-                    <button class="btn-search">Buscar</button>
-                </div>
+            <div class="search-bar">
+                <form method="GET" action="search.php">
+                    <input type="text" id="search" name="busqueda" placeholder="Buscar por ID, nombre o genero" required />
+                    <button class="btn-search" type="submit">Buscar</button>
+                </form>
+                
+            </div>
                 <button id="btnAgregar"class="btn-add">Agregar</button>
                 <button id="btnCancelar" class="btn-cncl">Cancelar</button>
             </div>
@@ -89,6 +92,10 @@ $resultado = $conexion->query($consulta);
     <input type="number" id="idGenero" name="idGenero" required>
     <br>
 
+    <label for="estado">Estado:</label>
+    <input type="number" id="estado" name="estado" required>
+    <br>
+
     <button type="submit">Guardar</button>
 </form>
 
@@ -104,6 +111,7 @@ $resultado = $conexion->query($consulta);
                 <th>idArtista</th>
                 <th>url</th>
                 <th>idGenero</th>
+                <th>estado</th>
             </tr>
         </thead>
         <tbody>
@@ -119,6 +127,7 @@ $resultado = $conexion->query($consulta);
                     echo "<td>" . $fila['idArtista'] . "</td>";
                     echo "<td>" . $fila['url'] . "</td>";
                     echo "<td>" . $fila['idGenero'] . "</td>";
+                    echo "<td>" . $fila['estado'] . "</td>";
                     echo "<td><a href='edit.php?id=" . $fila['idAlbumes'] . "'>Editar</a></td>"; // Enlace para editar
                     echo "<td><a href='delete.php?id=" . $fila['idAlbumes'] . "'>Eliminar</a></td>"; // Enlace para eliminar
                     echo "</tr>";

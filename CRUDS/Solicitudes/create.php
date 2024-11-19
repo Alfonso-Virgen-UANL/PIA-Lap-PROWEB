@@ -3,19 +3,21 @@ include 'conexion.php'; // Conectar a la base de datos
 
 // Capturar los datos enviados desde el formulario
 $nombre = $_POST['nombre'];
-$apellido = $_POST['apellido'];
-$correo = $_POST['correo'];
-$contraseña = $_POST['contraseña'];
+$duracion = $_POST['duracion'];
+$fechaLanzamiento = $_POST['fechaLanzamiento'];
 $foto = $_POST['foto'];
-$idRol = $_POST['idRol'];
+$idArtista = $_POST['idArtista'];
+$url = $_POST['url'];
+$idGenero = $_POST['idGenero'];
+$estado = $_POST['estado'];
 
-// Insertar datos en la tabla Usuarios
-$consulta = "INSERT INTO usuario (nombre, apellido, correo, contraseña, foto, idRol) 
-             VALUES ('$nombre', '$apellido', '$correo', '$contraseña', '$foto', $idRol)";
+// Insertar datos en la tabla Albumes
+$consulta = "INSERT INTO albumes (nombre, duracion, fechaLanzamiento, foto, idArtista, url,idGenero, estado) 
+             VALUES ('$nombre', '$duracion', '$fechaLanzamiento', '$foto', '$idArtista', '$url','$idGenero', '$estado' )";
 
 if ($conexion->query($consulta) === TRUE) {
    // echo "Usuario agregado exitosamente. <a href='CRUD Usuarios.php'> Volver</a>";
-    include 'CRUD Usuarios.php';
+   header("Location: Solicitudes.php");
 } else {
     echo "Error: " . $conexion->error;
 }

@@ -83,6 +83,9 @@ $albumes = $resultado->fetch_assoc();
     <label for="idGenero">idGenero:</label>
     <input type="number" id="idGenero" name="idGenero" value="<?php echo $albumes['idGenero']; ?>" required>
     <br>
+    <label for="estado">Estado:</label>
+    <input type="number" id="estado" name="estado" value="<?php echo $albumes['estado']; ?>" required>
+    <br>
     <button type="submit">Actualizar</button>
     </form>
         </main>

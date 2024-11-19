@@ -48,15 +48,20 @@ $resultado = $conexion->query($consulta);
 
         <main class="content">
             <h2>Gestión de Usuarios</h2>
-            <div class="top-bar">
+        <div class="top-bar">
                 
-                <div class="search-bar">
-                    <input type="text" id="search" placeholder="Buscar por ID, usuario o correo" />
-                    <button class="btn-search">Buscar</button>
-                </div>
+            <div class="search-bar">
+                <form method="GET" action="search.php">
+                    <input type="text" id="search" name="busqueda" placeholder="Buscar por ID, usuario o correo" required />
+                    <button class="btn-search" type="submit">Buscar</button>
+                </form>
+                
+            </div>
+
+                
                 <button id="btnAgregar" class="btn-add">Agregar</button>
                 <button id="btnCancelar" class="btn-cncl">Cancelar</button>
-            </div>
+        </div>
 <form id="formulario" action="create.php" method="POST">
 <h2>Agregar Nuevo Usuario</h2>
     <label for="nombre">Nombre:</label>

@@ -1,19 +1,36 @@
 <?php
+// Conexión a la base de datos
 include 'conexion.php'; // Conectar a la base de datos
 
-$consulta = "SELECT * FROM generos"; 
-$resultado = $conexion->query($consulta);
+// Verificar conexión
+if ($conexion->connect_error) {
+    die("Error de conexión: " . $conexion->connect_error);
+}
+
+// Capturar el valor de búsqueda (si existe)
+$busqueda = isset($_GET['busqueda']) ? $conexion->real_escape_string($_GET['busqueda']) : '';
+
+// Consulta base
+$sql = "SELECT * FROM generos"; // Cambia "usuario" por el nombre de tu tabla
+
+// Si hay una búsqueda, modifica la consulta
+if (!empty($busqueda)) {
+    $sql .= " WHERE nombre LIKE '%$busqueda%'  OR idGenero LIKE '%$busqueda%'";
+}
+
+// Ejecutar la consulta
+$resultado = $conexion->query($sql);
 ?>
-<!DOCTYPE html>
+ <!DOCTYPE html>
 <html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Albumfy - Gestor de Generos</title>
+    <title>Búsqueda</title>
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <header>
+<header>
         <nav>
             <table class="NavTab">
                 <tr>
@@ -36,7 +53,7 @@ $resultado = $conexion->query($consulta);
     </header>
     <div class="layout">
         <aside class="side-nav">
-        <ul>
+            <ul>
                 <li><a href="perfil.html">Perfil</a></li>
                 <li><a href="#">Configuración de la cuenta</a></li>
                 <li><a href="/PaginasAdministrativas/CRUD Usuarios/CRUD Usuarios.php">CRUD de usuarios</a></li>
@@ -46,57 +63,36 @@ $resultado = $conexion->query($consulta);
             </ul>
         </aside>
 
-        <main class="content">
-            <h2>Gestión de Generos</h2>
-            <div class="top-bar">
-                
-            <div class="search-bar">
-                <form method="GET" action="search.php">
-                    <input type="text" id="search" name="busqueda" placeholder="Buscar por ID, genero" required />
-                    <button class="btn-search" type="submit">Buscar</button>
-                </form>
-                
-            </div>
-                </div>
-                <button id="btnAgregar" class="btn-add">Agregar</button>
-                <button id="btnCancelar" class="btn-cncl">Cancelar</button>
-            </div>
-<form id="formulario" action="create.php" method="POST">
-<h2>Agregar Nuevo genero</h2>
-    <label for="nombre">Genero:</label>
-    <input type="text" id="nombre" name="nombre" required>
-    <br>
-
-    <button type="submit">Guardar</button>
-</form>
-
-    <h1>Registros de la tabla</h1>
-    <table border="1" class="BD">
+    <h1>Búsqueda de Usuarios</h1>
+    <!-- Resultados de la búsqueda -->
+    <table class="search" border="1" style="background-color: white; height: min-content;" >
         <thead>
             <tr>
-                <th>idGenero</th>
-                <th>nombre</th>
+                <th>ID</th>
+                <th>Nombre</th>
             </tr>
         </thead>
         <tbody>
             <?php
             if ($resultado->num_rows > 0) {
-                while ($fila = $resultado->fetch_assoc()) {
-                    echo "<tr>";
-                    echo "<td>" . $fila['idGenero'] . "</td>"; // Cambia 'id' por tus columnas
-                    echo "<td>" . $fila['nombre'] . "</td>"; // Ejemplo
-                    echo "<td><a href='edit.php?id=" . $fila['idGenero'] . "'>Editar</a></td>"; // Enlace para editar
-                    echo "<td><a href='delete.php?id=" . $fila['idGenero'] . "'>Eliminar</a></td>"; // Enlace para eliminar
-                    echo "</tr>";
-                }
+                while ($fila = $resultado->fetch_assoc()) { ?>
+                    <tr>
+                        <td><?php echo $fila['idGenero']; ?></td>
+                        <td><?php echo $fila['nombre']; ?></td>
+                        <td>
+                            <a href="edit.php?id=<?php echo $fila['idGenero']; ?>">Editar</a>
+                            <a href="delete.php?id=<?php echo $fila['idGenero']; ?>">Eliminar</a>
+                        </td>
+                    </tr>
+                <?php }
             } else {
-                echo "<tr><td colspan='3'>No hay registros</td></tr>";
+                echo "<tr><td colspan='5'>No se encontraron resultados para '$busqueda'</td></tr>";
             }
             ?>
         </tbody>
     </table>
-        </main>
     </div>
     <script src="script.js"></script>
+
 </body>
 </html>
