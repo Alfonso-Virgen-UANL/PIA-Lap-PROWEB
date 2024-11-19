@@ -1,7 +1,6 @@
 <?php
 include 'conexion.php'; // Conectar a la base de datos
-
-$consulta = "SELECT * FROM albumes WHERE estado=1"; 
+$consulta = "SELECT * FROM albumes"; 
 $resultado = $conexion->query($consulta);
 ?>
 <!DOCTYPE html>
@@ -9,7 +8,7 @@ $resultado = $conexion->query($consulta);
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Albumfy - Gestor de Albumes</title>
+    <title>Albumfy - Solicitudes</title>
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
@@ -39,21 +38,18 @@ $resultado = $conexion->query($consulta);
         <ul>
                 <li><a href="C:/PIA-Lap-PROWEB/PaginasUsuario/PerfilUsuario.html">Perfil</a></li>
                 <li><a href="C:/PIA-Lap-PROWEB/PaginasUsuario/ConfPerfilUsuario.html">Configuración de la cuenta</a></li>
-                <li><a href="/PaginasAdministrativas/CRUD Usuarios/CRUD Usuarios.php">CRUD de usuarios</a></li>
-                <li><a href="/PaginasAdministrativas/CRUD Generos/CRUD Generos.php">CRUD de géneros</a></li>
-                <li><a href="/PaginasAdministrativas/CRUD Albumes/CRUD Albumes.php">CRUD de albumes</a></li>
-                <li><a href="/PaginasAdministrativas/Solicitudes/Solicitudes.php">Solicitudes de Albumes</a></li>
+                <li><a href="/PaginasAdministrativas/Solicitudes(Usuarios)/Solicitudes.php">Solicitudes de Albumes</a></li>
             </ul>
 
         </aside>
 
         <main class="content">
-            <h2>Gestión de Albumes</h2>
+            <h2>Solicitudes</h2>
             <div class="top-bar">
                 
             <div class="search-bar">
                 <form method="GET" action="search.php">
-                    <input type="text" id="search" name="busqueda" placeholder="Buscar por ID, nombre o genero" required />
+                    <input type="text" id="search" name="busqueda" placeholder="Buscar por ID, nombre" required />
                     <button class="btn-search" type="submit">Buscar</button>
                 </form>
                 
@@ -92,9 +88,9 @@ $resultado = $conexion->query($consulta);
     <input type="number" id="idGenero" name="idGenero" required>
     <br>
 
-    <label for="estado">Estado:</label>
+   <!-- <label for="estado">Estado:</label>
     <input type="number" id="estado" name="estado" required>
-    <br>
+    <br>-->
 
     <button type="submit">Guardar</button>
 </form>
@@ -128,8 +124,6 @@ $resultado = $conexion->query($consulta);
                     echo "<td>" . $fila['url'] . "</td>";
                     echo "<td>" . $fila['idGenero'] . "</td>";
                     echo "<td>" . $fila['estado'] . "</td>";
-                    echo "<td><a href='edit.php?id=" . $fila['idAlbumes'] . "'>Editar</a></td>"; // Enlace para editar
-                    echo "<td><a href='delete.php?id=" . $fila['idAlbumes'] . "'>Eliminar</a></td>"; // Enlace para eliminar
                     echo "</tr>";
                 }
             } else {

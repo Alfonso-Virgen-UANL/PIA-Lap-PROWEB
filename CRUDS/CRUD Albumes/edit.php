@@ -31,7 +31,7 @@ $albumes = $resultado->fetch_assoc();
                     </td>
                     <td rowspan="3" class="fill"></td>
                     <td rowspan="3">
-                        <a href="perfil.html" class="NavDer">Mi perfil</a> 
+                        <a href="C:/PIA-Lap-PROWEB/PaginasUsuario/PerfilUsuario.html" class="NavDer">Mi perfil</a> 
                     </td>
                 </tr>
                 <tr>
@@ -43,8 +43,8 @@ $albumes = $resultado->fetch_assoc();
     <div class="layout">
         <aside class="side-nav">
         <ul>
-                <li><a href="perfil.html">Perfil</a></li>
-                <li><a href="#">Configuración de la cuenta</a></li>
+                <li><a href="C:/PIA-Lap-PROWEB/PaginasUsuario/PerfilUsuario.html">Perfil</a></li>
+                <li><a href="C:/PIA-Lap-PROWEB/PaginasUsuario/ConfPerfilUsuario.html">Configuración de la cuenta</a></li>
                 <li><a href="/PaginasAdministrativas/CRUD Usuarios/CRUD Usuarios.php">CRUD de usuarios</a></li>
                 <li><a href="/PaginasAdministrativas/CRUD Generos/CRUD Generos.php">CRUD de géneros</a></li>
                 <li><a href="/PaginasAdministrativas/CRUD Albumes/CRUD Albumes.php">CRUD de albumes</a></li>

@@ -11,11 +11,12 @@ if ($conexion->connect_error) {
 $busqueda = isset($_GET['busqueda']) ? $conexion->real_escape_string($_GET['busqueda']) : '';
 
 // Consulta base
-$sql = "SELECT * FROM generos"; // Cambia "usuario" por el nombre de tu tabla
+$sql = "SELECT * FROM albumes"; 
 
 // Si hay una búsqueda, modifica la consulta
 if (!empty($busqueda)) {
-    $sql .= " WHERE nombre LIKE '%$busqueda%'  OR idGenero LIKE '%$busqueda%'";
+    $sql .= " WHERE nombre LIKE '%$busqueda%' OR idAlbumes LIKE '%$busqueda%' 
+    OR idGenero LIKE '%$busqueda%'";
 }
 
 // Ejecutar la consulta
@@ -56,20 +57,24 @@ $resultado = $conexion->query($sql);
             <ul>
                 <li><a href="C:/PIA-Lap-PROWEB/PaginasUsuario/PerfilUsuario.html">Perfil</a></li>
                 <li><a href="C:/PIA-Lap-PROWEB/PaginasUsuario/ConfPerfilUsuario.html">Configuración de la cuenta</a></li>
-                <li><a href="/PaginasAdministrativas/CRUD Usuarios/CRUD Usuarios.php">CRUD de usuarios</a></li>
-                <li><a href="/PaginasAdministrativas/CRUD Generos/CRUD Generos.php">CRUD de géneros</a></li>
-                <li><a href="/PaginasAdministrativas/CRUD Albumes/CRUD Albumes.php">CRUD de albumes</a></li>
-                <li><a href="/PaginasAdministrativas/Solicitudes/Solicitudes.php">Solicitudes de Albumes</a></li>
+                <li><a href="/PaginasAdministrativas/Solicitudes(Usuarios)/Solicitudes.php">Solicitudes de Albumes</a></li>
             </ul>
         </aside>
 
-    <h1>Búsqueda de Usuarios</h1>
+    <h1>Búsqueda de Solicitudes</h1>
     <!-- Resultados de la búsqueda -->
     <table class="search" border="1" style="background-color: white; height: min-content;" >
         <thead>
             <tr>
                 <th>ID</th>
                 <th>Nombre</th>
+                <th>Duración</th>
+                <th>Fecha de Lanzamiento</th>
+                <th>foto</th>
+                <th>idArtista</th>
+                <th>url</th>
+                <th>idGenero</th>
+                <th>estado</th>
             </tr>
         </thead>
         <tbody>
@@ -77,11 +82,19 @@ $resultado = $conexion->query($sql);
             if ($resultado->num_rows > 0) {
                 while ($fila = $resultado->fetch_assoc()) { ?>
                     <tr>
-                        <td><?php echo $fila['idGenero']; ?></td>
+                        <td><?php echo $fila['idAlbumes']; ?></td>
                         <td><?php echo $fila['nombre']; ?></td>
+                        <td><?php echo $fila['duracion']; ?></td>
+                        <td><?php echo $fila['fechaLanzamiento']; ?></td>
+                        <td><?php echo $fila['foto']; ?></td>
+                        <td><?php echo $fila['idArtista']; ?></td>
+                        <td><?php echo $fila['url']; ?></td>
+                        <td><?php echo $fila['idGenero']; ?></td>
+                        <td><?php echo $fila['estado']; ?></td>
+                        
                         <td>
-                            <a href="edit.php?id=<?php echo $fila['idGenero']; ?>">Editar</a>
-                            <a href="delete.php?id=<?php echo $fila['idGenero']; ?>">Eliminar</a>
+                            <a href="edit.php?id=<?php echo $fila['idAlbumes']; ?>">Editar</a>
+                            <a href="delete.php?id=<?php echo $fila['idAlbumes']; ?>">Eliminar</a>
                         </td>
                     </tr>
                 <?php }
