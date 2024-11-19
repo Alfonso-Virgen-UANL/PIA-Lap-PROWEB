@@ -1,11 +1,11 @@
-
-*{
+/* General */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #1c1c1c;
+    color: white;
     margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
-
-/*BARRA DE NAVEGACIÓN---------------------*/
+  }
+ /*BARRA DE NAVEGACIÓN---------------------*/
 a:visited 
 {
     text-decoration: none;
@@ -25,7 +25,7 @@ a:visited
     background: #2E2929;
     padding: 20px;
     width: 400px;
-    height: 40px;
+    height: 1%;
     margin-top: 50px;
     margin-left: 20px;
     margin-right: 30px;
@@ -90,56 +90,54 @@ header .logo {
     font-weight: bold;
 }
 
-/*BODY*/
-main {
+  
+  /* Main */
+  .albums-trending {
     padding: 20px;
-    text-align: center;
-    margin: 20px;
-    text-align: left;
-}
-
-.AD
-{
-    color:#FF929D;
-    font-size: 50px;
- 
-}
-
-
-.p1
-{
+  }
+  
+  .albums-trending h2 {
+    font-size: 24px;
+    margin-bottom: 20px;
+  }
+  
+  .album-card {
+    display: flex;
+    align-items: center;
+    background: #2e2e2e;
+    padding: 15px;
+    border-radius: 10px;
+    margin-bottom: 20px;
+  }
+  
+  .album-card img {
+    width: 100px;
+    height: 100px;
+    border-radius: 5px;
+    margin-right: 20px;
+  }
+  
+  .album-info h3 {
+    font-size: 18px;
+    margin-bottom: 10px;
+  }
+  
+  .album-info p {
+    font-size: 14px;
+    margin: 2px 0;
+  }
+  
+  .btn-details {
+    background-color: #a62323;
     color: white;
-    font-size: 35px;
-    margin: 25px;
-}
-li
-{
-    color: white;
-    font-size: 35px;
-    margin: 25px;
-}
-
-body {
-    background: rgb(17,0,0);
-    background: linear-gradient(180deg, rgba(17,0,0,1) 0%, rgba(119,2,2,1) 90%);
-    font-family: Arial, sans-serif;
-    line-height: 1.6;
-    color: #333; 
-    position: relative;
-    min-height: 100vh; /* Asegura que el body tenga al menos la altura de la ventana */
-    margin: 0;
-}
-
-body::before {
-    content: "";
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-image: url("/ContenidoAlbumify/FondoAcercaDe.png");
-    background-size:cover;
-    background-repeat: no-repeat;
-    opacity: 0.2; /* Controla la opacidad aquí */
-    z-index: -1; /* Mantiene la imagen detrás del contenido */
-}
+    border: none;
+    padding: 8px 12px;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 10px;
+  }
+  
+  .btn-details:hover {
+    background-color: #871d1d;
+  }
+  
