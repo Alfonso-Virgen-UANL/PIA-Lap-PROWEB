@@ -29,9 +29,9 @@ $resultado = $conexion->query($consulta);
                     </td>
                 </tr>
                 <tr>
-                  <td><a href="index.html" class="TextoNav">| Home</a></td>
+                <td><a href="index.html" class="TextoNav">| Home</a></td>
                 </tr>
-              </table>
+            </table>
         </nav>
     </header>
     <div class="layout">
