@@ -17,19 +17,19 @@ $resultado = $conexion->query($consulta);
         <nav>
             <table class="NavTab">
                 <tr>
-                    <td rowspan="3"><img src="AlbumifyLogo.png" class="logo"></td>
+                    <td rowspan="3"><img src="/ContenidoAlbumify/AlbumifyLogo.png" class="logo"></td>
                     <td rowspan="1"><input type="text" placeholder="🔎¿Qué quieres buscar?" class="busqueda"></td>
                     <td rowspan="3">  
-                        <a href="catalogo.html" class="NavMedio"> Catálogo</a>   
+                        <a href="/Home/catalogo.html" class="NavMedio"> Catálogo</a>   
                         <a href="/AcercaDe/AcercaDe(UyA).html" class="NavMedio2">| Acerca de</a>
                     </td>
                     <td rowspan="3" class="fill"></td>
                     <td rowspan="3">
-                        <a href="perfil.html" class="NavDer">Mi perfil</a> 
+                        <a href="PerfilAdmin.html" class="NavDer">Mi perfil</a> 
                     </td>
                 </tr>
                 <tr>
-                  <td><a href="index.html" class="TextoNav">| Home</a></td>
+                    <td><a href="/HomeTendencias/Home.html" class="TextoNav">| Home</a></td>
                 </tr>
               </table>
         </nav>
@@ -37,8 +37,8 @@ $resultado = $conexion->query($consulta);
     <div class="layout">
         <aside class="side-nav">
             <ul>
-                <li><a href="perfil.html">Perfil</a></li>
-                <li><a href="#">Configuración de la cuenta</a></li>
+                <li><a href="PerfilAdmin.html">Perfil</a></li>
+                <li><a href="ConfPerfilAdmin.html">Configuración de la cuenta</a></li>
                 <li><a href="CRUD Usuarios.html">CRUD de usuarios</a></li>
                 <li><a href="CRUD Generos.html">CRUD de géneros</a></li>
                 <li><a href="CRUD Albumes.html">CRUD de albumes</a></li>

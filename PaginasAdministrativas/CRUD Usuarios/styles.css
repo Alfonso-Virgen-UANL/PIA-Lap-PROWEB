@@ -37,7 +37,7 @@ body::before {
     left: 0;
     width: 100%;
     height: 100%;
-    background-image: url("FondoAcercaDe.png");
+    background-image: url("/ContenidoAlbumify/FondoAcercaDe.png");
     background-size:cover;
     background-repeat: no-repeat;
     opacity: 0.2; /* Controla la opacidad aquí */
@@ -143,7 +143,7 @@ header .logo {
     font-family: Arial, sans-serif;
     line-height: 1.6;
     color: #333; 
-    width: 150px;
+    width: 250px;
     padding: 20px;
     height: calc(100vh - 60px); /* Ajusta la altura quitando la de la barra superior */
     /*position: fixed;*/
@@ -170,7 +170,6 @@ header .logo {
 
 /* Contenido principal */
 .content {
-    margin-left: 250px; /* Ancho de la barra lateral */
     padding: 20px;
     margin-top: 60px; /* Altura de la barra superior */
 }
@@ -254,4 +253,47 @@ table.BD {
     
 label{
     color: white;
+}
+
+.content {
+    color: white;
+}
+
+#perfil {
+    color: white;
+    font-size: 150%;
+}
+
+.row {
+    color: white;
+}
+
+h3 {
+    padding-bottom: 1em;
+    width: 150%;
+    color: white;
+}
+
+#cambcont {
+    margin-left: 6em;
+}
+
+.inp {
+    width: 15em;
+}
+
+#bot {
+    color: white;
+    background-color: rgb(0, 0, 0);
+    border-radius: 15px;
+    border: none;
+    text-align: center;
+    width: 12em;
+    height: 2em;
+    font-family: Arial, sans-serif;
+    margin-left: 1.5em;
+}
+
+.labelconf {
+    padding-left: 1em;
 }

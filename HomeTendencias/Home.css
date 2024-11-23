@@ -1,0 +1,143 @@
+/* General */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #1c1c1c;
+    color: white;
+    margin: 0;
+  }
+ /*BARRA DE NAVEGACIÓN---------------------*/
+a:visited 
+{
+    text-decoration: none;
+    decoration: none; 
+}
+
+.logo
+{
+    width: 150px;
+    margin-left: 20px;
+    margin-right: 0px;
+}
+
+.busqueda
+{
+    border-radius: 25px;
+    background: #2E2929;
+    padding: 20px;
+    width: 400px;
+    height: 1%;
+    margin-top: 50px;
+    margin-left: 20px;
+    margin-right: 30px;
+}
+
+.fill
+{
+    width: 40%;
+}
+
+.NavTab 
+{  
+    width:100%;
+}
+.NavTab tr td
+{  
+}
+
+.TextoNav
+{
+    color: #FFFFFF;
+    font-size: 140%;
+    margin-left: 20px;
+    margin-bottom: 30px;
+}
+
+.NavMedio
+{
+    color: #FFFFFF;
+    font-size: 160%;
+    margin-left: 30px;
+    margin-top: 45px;
+    
+}
+.NavMedio2
+{
+    color: #FFFFFF;
+    font-size: 160%;
+    margin-top: 45px;
+    
+}
+
+.NavDer
+{
+    color: #FFFFFF;
+    font-size: 160%;
+}
+.NavDer2
+{
+    color: #FFFFFF;
+    font-size: 160%;
+}
+
+header {
+    background: rgb(214,60,55);
+    background: linear-gradient(90deg, rgba(214,60,55,1) 0%, rgba(111,14,11,1) 71%);
+    color: #fff;
+    padding: 10px 0;
+}
+header .logo {
+    font-size: 24px;
+    font-weight: bold;
+}
+
+  
+  /* Main */
+  .albums-trending {
+    padding: 20px;
+  }
+  
+  .albums-trending h2 {
+    font-size: 24px;
+    margin-bottom: 20px;
+  }
+  
+  .album-card {
+    display: flex;
+    align-items: center;
+    background: #2e2e2e;
+    padding: 15px;
+    border-radius: 10px;
+    margin-bottom: 20px;
+  }
+  
+  .album-card img {
+    width: 100px;
+    height: 100px;
+    border-radius: 5px;
+    margin-right: 20px;
+  }
+  
+  .album-info h3 {
+    font-size: 18px;
+    margin-bottom: 10px;
+  }
+  
+  .album-info p {
+    font-size: 14px;
+    margin: 2px 0;
+  }
+  
+  .btn-details {
+    background-color: #a62323;
+    color: white;
+    border: none;
+    padding: 8px 12px;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 10px;
+  }
+  
+  .btn-details:hover {
+    background-color: #871d1d;
+  }
+  

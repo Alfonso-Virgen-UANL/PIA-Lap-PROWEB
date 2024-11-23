@@ -1,278 +1,180 @@
-
-*{
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+/* Reset básico */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
-/*BARRA DE NAVEGACIÓN---------------------*/
-a:visited 
-{
-    text-decoration: none;
+/* Estilo global */
+body {
+  font-family: Arial, sans-serif;
+  line-height: 1.6;
+  background: linear-gradient(180deg, rgba(17,0,0,1) 0%, rgba(119,2,2,1) 100%);
+  color: #fff;
+  position: relative;
+  min-height: 100vh;
 }
 
-.logo
-{
-    width: 150px;
-    margin-left: 20px;
-    margin-right: 0px;
-}
-
-.busqueda
-{
-    border-radius: 25px;
-    background: #2E2929;
-    padding: 20px;
-    width: 400px;
-    height: 40px;
-    margin-top: 50px;
-    margin-left: 20px;
-    margin-right: 30px;
-}
-
-.fill
-{
-    width: 40%;
-}
-
-.NavTab 
-{  
-    width:100%;
-}
-
-.TextoNav
-{
-    color: #FFFFFF;
-    font-size: 140%;
-    margin-left: 20px;
-    margin-bottom: 30px;
-}
-
-.NavMedio
-{
-    color: #FFFFFF;
-    font-size: 160%;
-    margin-left: 30px;
-    margin-top: 45px;
-    
-}
-.NavMedio2
-{
-    color: #FFFFFF;
-    font-size: 160%;
-    margin-top: 45px;
-    
-}
-
-.NavDer
-{
-    color: #FFFFFF;
-    font-size: 160%;
-}
-.NavDer2
-{
-    color: #FFFFFF;
-    font-size: 160%;
-}
-
+/* Barra de navegación */
 header {
-    background: rgb(214,60,55);
-    background: linear-gradient(90deg, rgba(214,60,55,1) 0%, rgba(111,14,11,1) 71%);
-    color: #fff;
-    padding: 10px 0;
-}
-header .logo {
-    font-size: 24px;
-    font-weight: bold;
+  background: linear-gradient(90deg, rgba(214,60,55,1) 0%, rgba(111,14,11,1) 71%);
+  color: #fff;
+  padding: 10px 0;
 }
 
-    body {
-      font-family: Arial, sans-serif;
-      background-color: #1c1c1c;
-      color: white;
-      margin: 0;
-      padding: 0;
-    }
-    
-    header {
-      background-color: #a62323;
-      color: white;
-      padding: 10px 20px;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-    }
-    
-    header a {
-      color: white;
-      text-decoration: none;
-      margin-left: 15px;
-    }
-    
-    main {
-      padding: 20px;
-    }
-    
-    .catalogo-header {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      margin-bottom: 20px;
-    }
-    
-    .catalogo-header #filter-button {
-      background-color: #a62323;
-      color: white;
-      border: none;
-      padding: 10px 15px;
-      border-radius: 5px;
-      cursor: pointer;
-    }
-    
-    .catalogo-header #filter-menu {
-      position: absolute;
-      background: white;
-      color: black;
-      border: 1px solid #ccc;
-      padding: 10px;
-      border-radius: 5px;
-      margin-top: 10px;
-      display: none;
-    }
-    
-    .catalogo-header #filter-menu.hidden {
-      display: none;
-    }
-    
-    .carousel {
-      margin-bottom: 30px;
-    }
-    
-    .carousel h3 {
-      margin-bottom: 10px;
-    }
-    
-    .carousel-container {
-      display: flex;
-      gap: 15px;
-      overflow-x: auto;
-      padding: 10px;
-      scroll-behavior: smooth;
-    }
-    
-    .carousel-container::-webkit-scrollbar {
-      height: 8px;
-    }
-    
-    .carousel-container::-webkit-scrollbar-thumb {
-      background: #a62323;
-      border-radius: 4px;
-    }
-    
-    .carousel-item {
-      flex: 0 0 auto;
-      width: 150px;
-      height: 150px;
-      border-radius: 10px;
-      overflow: hidden;
-    }
-    
-    .carousel-item img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-    }
-    
-    .catalogo-header {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      margin: 20px;
-    }
-    
-    .catalogo-header #filter-button {
-      background-color: #a62323;
-      color: white;
-      border: none;
-      padding: 10px 15px;
-      border-radius: 5px;
-      cursor: pointer;
-    }
-    
-    .catalogo-header #filter-button:hover {
-      background-color: #871d1d;
-    }
-    
-    #filter-modal {
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background: rgba(0, 0, 0, 0.8);
-      display: flex;
-      justify-content: center;
-      align-items: center;
-    }
-    
-    .filter-content {
-      background: white;
-      color: black;
-      width: 80%;
-      max-width: 600px;
-      padding: 20px;
-      border-radius: 10px;
-      text-align: center;
-      position: relative;
-    }
-    
-    .filter-content h3 {
-      margin-bottom: 20px;
-      font-size: 18px;
-      color: #a62323;
-    }
-    
-    .filter-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
-      gap: 10px;
-      margin-bottom: 20px;
-    }
-    
-    .filter-grid label {
-      display: flex;
-      align-items: center;
-      font-size: 14px;
-    }
-    
-    .filter-grid input[type="checkbox"] {
-      margin-right: 10px;
-    }
-    
-    #apply-filters {
-      background-color: #a62323;
-      color: white;
-      border: none;
-      padding: 10px 15px;
-      border-radius: 5px;
-      cursor: pointer;
-    }
-    
-    #apply-filters:hover {
-      background-color: #871d1d;
-    }
-    
-    .hidden {
-      display: none;
-    }
-    body {
-        background: rgb(17,0,0);
-        background: linear-gradient(180deg, rgba(17,0,0,1) 0%, rgba(119,2,2,1) 100%);
-        font-family: Arial, sans-serif;
-        line-height: 1.6;
-        color: #333; 
-        position: relative;
-        min-height: 100vh; /* Asegura que el body tenga al menos la altura de la ventana */
-        margin: 0;
-    }
-    
+header .logo {
+  width: 150px;
+  margin-left: 20px;
+}
+
+header a {
+  color: white;
+  text-decoration: none;
+  font-size: 16px;
+  margin: 0 15px;
+}
+
+.busqueda {
+  border-radius: 25px;
+  background: #2E2929;
+  padding: 10px 15px;
+  width: 400px;
+  height: 40px;
+  color: white;
+  border: none;
+}
+
+.NavTab {
+  width: 100%;
+}
+
+/* Sección de catálogo */
+main {
+  padding: 20px;
+}
+
+.catalogo-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin: 20px 0;
+}
+
+#filter-button {
+  background-color: #a62323;
+  color: white;
+  border: none;
+  padding: 10px 15px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+#filter-button:hover {
+  background-color: #871d1d;
+}
+
+/* Carouseles */
+.carousel {
+  margin-bottom: 30px;
+}
+
+.carousel h3 {
+  margin-bottom: 10px;
+}
+
+.carousel-container {
+  display: flex;
+  gap: 15px;
+  overflow-x: auto;
+  padding: 10px;
+  scroll-behavior: smooth;
+}
+
+.carousel-container::-webkit-scrollbar {
+  height: 8px;
+}
+
+.carousel-container::-webkit-scrollbar-thumb {
+  background: #a62323;
+  border-radius: 4px;
+}
+
+.carousel-item {
+  flex: 0 0 auto;
+  width: 150px;
+  height: 150px;
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+.carousel-item img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* Ventana modal */
+#filter-modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.7);
+  display: none; /* Ocultada por defecto */
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+#filter-modal.active {
+  display: flex; /* Se muestra al activarse */
+}
+
+.filter-content {
+  background: white;
+  color: black;
+  width: 80%;
+  max-width: 600px;
+  padding: 20px;
+  border-radius: 10px;
+  text-align: center;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.filter-content h3 {
+  margin-bottom: 20px;
+  font-size: 18px;
+  color: #a62323;
+}
+
+.filter-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+  gap: 10px;
+  margin-bottom: 20px;
+}
+
+.filter-grid label {
+  display: flex;
+  align-items: center;
+  font-size: 14px;
+}
+
+.filter-grid input[type="checkbox"] {
+  margin-right: 10px;
+}
+
+#apply-filters {
+  background-color: #c72c41;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  cursor: pointer;
+  font-size: 16px;
+  border-radius: 5px;
+}
+
+#apply-filters:hover {
+  background-color: #a32436;
+}
