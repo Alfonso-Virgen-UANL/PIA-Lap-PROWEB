@@ -20,7 +20,7 @@ $resultado = $conexion->query($consulta);
                     <td rowspan="3"><img src="AlbumifyLogo.png" class="logo"></td>
                     <td rowspan="1"><input type="text" placeholder="🔎¿Qué quieres buscar?" class="busqueda"></td>
                     <td rowspan="3">  
-                        <a href="catalogo.html" class="NavMedio"> Catálogo</a>   
+                        <a href="/Home/catalogo.html" class="NavMedio"> Catálogo</a>   
                         <a href="/AcercaDe/AcercaDe(UyA).html" class="NavMedio2">| Acerca de</a>
                     </td>
                     <td rowspan="3" class="fill"></td>
@@ -29,7 +29,7 @@ $resultado = $conexion->query($consulta);
                     </td>
                 </tr>
                 <tr>
-                  <td><a href="index.html" class="TextoNav">| Home</a></td>
+                  <td><a href="/HomeTendencias/Home.html" class="TextoNav">| Home</a></td>
                 </tr>
               </table>
         </nav>
@@ -39,10 +39,10 @@ $resultado = $conexion->query($consulta);
         <ul>
                 <li><a href="C:/PIA-Lap-PROWEB/PaginasUsuario/PerfilUsuario.html">Perfil</a></li>
                 <li><a href="C:/PIA-Lap-PROWEB/PaginasUsuario/ConfPerfilUsuario.html">Configuración de la cuenta</a></li>
-                <li><a href="/PaginasAdministrativas/CRUD Usuarios/CRUD Usuarios.php">CRUD de usuarios</a></li>
-                <li><a href="/PaginasAdministrativas/CRUD Generos/CRUD Generos.php">CRUD de géneros</a></li>
-                <li><a href="/PaginasAdministrativas/CRUD Albumes/CRUD Albumes.php">CRUD de albumes</a></li>
-                <li><a href="/PaginasAdministrativas/Solicitudes/Solicitudes.php">Solicitudes de Albumes</a></li>
+                <li><a href="/CRUDS/CRUD_Usuarios/CRUD_Usuarios.php">CRUD de usuarios</a></li>
+                <li><a href="/CRUDS/CRUD_Generos/CRUD_Generos.php">CRUD de géneros</a></li>
+                <li><a href="/CRUDS/CRUD_Albumes/CRUD_Albumes.php">CRUD de albumes</a></li>
+                <li><a href="/CRUDS/Solicitudes/Solicitudes.php">Solicitudes de Albumes</a></li>
             </ul>
 
         </aside>
