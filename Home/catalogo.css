@@ -98,19 +98,24 @@ main {
   background: #a62323;
   border-radius: 4px;
 }
-
 .carousel-item {
-  flex: 0 0 auto;
-  width: 150px;
-  height: 150px;
-  border-radius: 10px;
-  overflow: hidden;
+  text-align: center;
+  min-width: 200px; /* Ajusta según el tamaño de las imágenes */
 }
 
 .carousel-item img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
+  width: 100%; /* Ajusta según el diseño */
+  max-width: 200px; /* Limitar el tamaño máximo de las imágenes */
+  height: auto; /* Mantener la proporción */
+  display: block;
+  margin: 0 auto;
+  border-radius: 15px;
+}
+.carousel-item p {
+  word-wrap: break-word;
+  margin-top: 30px;
+  font-size: 16px; /* Ajusta el tamaño de la fuente */
+  color: #ffffff; /* Cambia el color si lo necesitas */
 }
 
 /* Ventana modal */

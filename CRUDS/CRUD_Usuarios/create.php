@@ -15,7 +15,7 @@ $consulta = "INSERT INTO usuario (nombre, apellido, correo, contraseña, foto, i
 
 if ($conexion->query($consulta) === TRUE) {
    // echo "Usuario agregado exitosamente. <a href='CRUD Usuarios.php'> Volver</a>";
-   header("Location: CRUD Usuarios.php");
+   header("Location: CRUD_Usuarios.php");
 } else {
     echo "Error: " . $conexion->error;
 }

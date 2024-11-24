@@ -92,9 +92,10 @@ $resultadoAlbumes = $conexion->query($sqlAlbumes);
         <?php if ($resultadoAlbumes->num_rows > 0): ?>
           <?php while ($album = $resultadoAlbumes->fetch_assoc()): ?>
             <div class="carousel-item">
-             <img src="foto/<?= htmlspecialchars($album['foto']); ?>" alt="<?= htmlspecialchars($album['nombre']); ?>">
-              <p><?= htmlspecialchars($album['nombre']); ?></p>
+             <img src="<?= htmlspecialchars($album['foto']); ?>" alt="Imagen no disponible">
+             <p>"<?= htmlspecialchars($album['nombre']); ?>"</p>
             </div>
+            
           <?php endwhile; ?>
         <?php else: ?>
           <p>No se encontraron álbumes para los géneros seleccionados.</p>
