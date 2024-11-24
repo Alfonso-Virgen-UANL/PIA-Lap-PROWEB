@@ -9,7 +9,7 @@ $consulta = "DELETE FROM albumes WHERE idAlbumes = $idAlbumes";
 
 if ($conexion->query($consulta) === TRUE) {
     //echo "Usuario eliminado exitosamente. <a href='index.php'>Volver</a>";
-    header("Location: CRUD_Albumes.php");
+    header("Location: CRUD Albumes.php");
 } else {
     echo "Error: " . $conexion->error;
 }

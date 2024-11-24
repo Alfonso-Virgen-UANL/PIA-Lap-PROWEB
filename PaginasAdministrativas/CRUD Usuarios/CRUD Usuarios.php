@@ -1,10 +1,7 @@
 <?php
 include 'conexion.php'; // Conectar a la base de datos
 
-$consulta = "SELECT u.idUsuario, u.nombre AS nombreUsuario, u.apellido, u.correo, u.contraseña, u.foto, r.nombre AS nombreRol
-             FROM usuario u
-             INNER JOIN rol r ON u.idRol = r.idRol
-             ORDER BY u.idUsuario ASC";
+$consulta = "SELECT * FROM usuario"; 
 $resultado = $conexion->query($consulta);
 ?>
 <!DOCTYPE html>
@@ -23,16 +20,16 @@ $resultado = $conexion->query($consulta);
                     <td rowspan="3"><img src="AlbumifyLogo.png" class="logo"></td>
                     <td rowspan="1"><input type="text" placeholder="🔎¿Qué quieres buscar?" class="busqueda"></td>
                     <td rowspan="3">  
-                        <a href="/Home/catalogo.html" class="NavMedio"> Catálogo</a>   
+                        <a href="catalogo.html" class="NavMedio"> Catálogo</a>   
                         <a href="/AcercaDe/AcercaDe(UyA).html" class="NavMedio2">| Acerca de</a>
                     </td>
                     <td rowspan="3" class="fill"></td>
                     <td rowspan="3">
-                        <a href="C:/PIA-Lap-PROWEB/PaginasUsuario/PerfilUsuario.html" class="NavDer">Mi perfil</a> 
+                        <a href="perfil.html" class="NavDer">Mi perfil</a> 
                     </td>
                 </tr>
                 <tr>
-                  <td><a href="/HomeTendencias/Home.html" class="TextoNav">| Home</a></td>
+                  <td><a href="index.html" class="TextoNav">| Home</a></td>
                 </tr>
               </table>
         </nav>
@@ -40,31 +37,26 @@ $resultado = $conexion->query($consulta);
     <div class="layout">
         <aside class="side-nav">
             <ul>
-            <li><a href="/PIA-Lap-PROWEB/PaginasUsuario/PerfilUsuario.html">Perfil</a></li>
-                <li><a href="/PIA-Lap-PROWEB/PaginasUsuario/ConfPerfilUsuario.html">Configuración de la cuenta</a></li>
-                <li><a href="/PIA-Lap-PROWEB/CRUDS/CRUD_Usuarios/CRUD_Usuarios.php">CRUD de usuarios</a></li>
-                <li><a href="/PIA-Lap-PROWEB/CRUDS/CRUD_Generos/CRUD_Generos.php">CRUD de géneros</a></li>
-                <li><a href="/PIA-Lap-PROWEB/CRUDS/CRUD_Albumes/CRUD_Albumes.php">CRUD de albumes</a></li>
-                <li><a href="/PIA-Lap-PROWEB/CRUDS/Solicitudes/Solicitudes.php">Solicitudes de Albumes</a></li>
+                <li><a href="perfil.html">Perfil</a></li>
+                <li><a href="#">Configuración de la cuenta</a></li>
+                <li><a href="/PaginasAdministrativas/CRUD Usuarios/CRUD Usuarios.php">CRUD de usuarios</a></li>
+                <li><a href="/PaginasAdministrativas/CRUD Generos/CRUD Generos.php">CRUD de géneros</a></li>
+                <li><a href="/PaginasAdministrativas/CRUD Albumes/CRUD Albumes.php">CRUD de albumes</a></li>
+                <li><a href="/PaginasAdministrativas/Solicitudes/Solicitudes.php">Solicitudes de Albumes</a></li>
             </ul>
         </aside>
 
         <main class="content">
             <h2>Gestión de Usuarios</h2>
-        <div class="top-bar">
+            <div class="top-bar">
                 
-            <div class="search-bar">
-                <form method="GET" action="search.php">
-                    <input type="text" id="search" name="busqueda" placeholder="Buscar por ID, usuario o correo" required />
-                    <button class="btn-search" type="submit">Buscar</button>
-                </form>
-                
-            </div>
-
-                
+                <div class="search-bar">
+                    <input type="text" id="search" placeholder="Buscar por ID, usuario o correo" />
+                    <button class="btn-search">Buscar</button>
+                </div>
                 <button id="btnAgregar" class="btn-add">Agregar</button>
                 <button id="btnCancelar" class="btn-cncl">Cancelar</button>
-        </div>
+            </div>
 <form id="formulario" action="create.php" method="POST">
 <h2>Agregar Nuevo Usuario</h2>
     <label for="nombre">Nombre:</label>
@@ -104,7 +96,7 @@ $resultado = $conexion->query($consulta);
                 <th>correo</th>
                 <th>contraseña</th>
                 <th>foto</th>
-                <th>Rol</th>
+                <th>idRol</th>
             </tr>
         </thead>
         <tbody>
@@ -113,12 +105,12 @@ $resultado = $conexion->query($consulta);
                 while ($fila = $resultado->fetch_assoc()) {
                     echo "<tr>";
                     echo "<td>" . $fila['idUsuario'] . "</td>"; // Cambia 'id' por tus columnas
-                    echo "<td>" . $fila['nombreUsuario'] . "</td>"; // Ejemplo
+                    echo "<td>" . $fila['nombre'] . "</td>"; // Ejemplo
                     echo "<td>" . $fila['apellido'] . "</td>"; // Ejemplo
                     echo "<td>" . $fila['correo'] . "</td>";
                     echo "<td>" . $fila['contraseña'] . "</td>";
-                    echo "<td><img src='" . $fila['foto'] . "' alt='Imagen no disponible' style='width:100px;height:auto;'></td>";
-                    echo "<td>" . $fila['nombreRol'] . "</td>";
+                    echo "<td>" . $fila['foto'] . "</td>";
+                    echo "<td>" . $fila['idRol'] . "</td>";
                     echo "<td><a href='edit.php?id=" . $fila['idUsuario'] . "'>Editar</a></td>"; // Enlace para editar
                     echo "<td><a href='delete.php?id=" . $fila['idUsuario'] . "'>Eliminar</a></td>"; // Enlace para eliminar
                     echo "</tr>";

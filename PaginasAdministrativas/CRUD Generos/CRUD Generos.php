@@ -20,16 +20,16 @@ $resultado = $conexion->query($consulta);
                     <td rowspan="3"><img src="AlbumifyLogo.png" class="logo"></td>
                     <td rowspan="1"><input type="text" placeholder="🔎¿Qué quieres buscar?" class="busqueda"></td>
                     <td rowspan="3">  
-                        <a href="/Home/catalogo.html" class="NavMedio"> Catálogo</a>   
+                        <a href="catalogo.html" class="NavMedio"> Catálogo</a>   
                         <a href="/AcercaDe/AcercaDe(UyA).html" class="NavMedio2">| Acerca de</a>
                     </td>
                     <td rowspan="3" class="fill"></td>
                     <td rowspan="3">
-                        <a href="C:/PIA-Lap-PROWEB/PaginasUsuario/PerfilUsuario.html" class="NavDer">Mi perfil</a> 
+                        <a href="perfil.html" class="NavDer">Mi perfil</a> 
                     </td>
                 </tr>
                 <tr>
-                  <td><a href="/HomeTendencias/Home.html" class="TextoNav">| Home</a></td>
+                  <td><a href="index.html" class="TextoNav">| Home</a></td>
                 </tr>
               </table>
         </nav>
@@ -37,12 +37,12 @@ $resultado = $conexion->query($consulta);
     <div class="layout">
         <aside class="side-nav">
         <ul>
-        <li><a href="/PIA-Lap-PROWEB/PaginasUsuario/PerfilUsuario.html">Perfil</a></li>
-                <li><a href="/PIA-Lap-PROWEB/PaginasUsuario/ConfPerfilUsuario.html">Configuración de la cuenta</a></li>
-                <li><a href="/PIA-Lap-PROWEB/CRUDS/CRUD_Usuarios/CRUD_Usuarios.php">CRUD de usuarios</a></li>
-                <li><a href="/PIA-Lap-PROWEB/CRUDS/CRUD_Generos/CRUD_Generos.php">CRUD de géneros</a></li>
-                <li><a href="/PIA-Lap-PROWEB/CRUDS/CRUD_Albumes/CRUD_Albumes.php">CRUD de albumes</a></li>
-                <li><a href="/PIA-Lap-PROWEB/CRUDS/Solicitudes/Solicitudes.php">Solicitudes de Albumes</a></li>
+                <li><a href="perfil.html">Perfil</a></li>
+                <li><a href="#">Configuración de la cuenta</a></li>
+                <li><a href="/PaginasAdministrativas/CRUD Usuarios/CRUD Usuarios.php">CRUD de usuarios</a></li>
+                <li><a href="/PaginasAdministrativas/CRUD Generos/CRUD Generos.php">CRUD de géneros</a></li>
+                <li><a href="/PaginasAdministrativas/CRUD Albumes/CRUD Albumes.php">CRUD de albumes</a></li>
+                <li><a href="/PaginasAdministrativas/Solicitudes/Solicitudes.php">Solicitudes de Albumes</a></li>
             </ul>
         </aside>
 
@@ -50,13 +50,9 @@ $resultado = $conexion->query($consulta);
             <h2>Gestión de Generos</h2>
             <div class="top-bar">
                 
-            <div class="search-bar">
-                <form method="GET" action="search.php">
-                    <input type="text" id="search" name="busqueda" placeholder="Buscar por ID, genero" required />
-                    <button class="btn-search" type="submit">Buscar</button>
-                </form>
-                
-            </div>
+                <div class="search-bar">
+                    <input type="text" id="search" placeholder="Buscar por ID, genero" />
+                    <button class="btn-search">Buscar</button>
                 </div>
                 <button id="btnAgregar" class="btn-add">Agregar</button>
                 <button id="btnCancelar" class="btn-cncl">Cancelar</button>

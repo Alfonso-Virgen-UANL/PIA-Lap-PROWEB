@@ -1,3 +1,9 @@
+<?php
+include 'conexion.php'; // Conectar a la base de datos
+
+$consulta = "SELECT * FROM usuario"; 
+$resultado = $conexion->query($consulta);
+?>
 <!DOCTYPE html>
 <html lang="es">
 <head>
