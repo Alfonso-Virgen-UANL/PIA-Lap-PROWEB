@@ -37,12 +37,12 @@ $resultado = $conexion->query($consulta);
     <div class="layout">
         <aside class="side-nav">
         <ul>
-                <li><a href="C:/PIA-Lap-PROWEB/PaginasUsuario/PerfilUsuario.html">Perfil</a></li>
-                <li><a href="C:/PIA-Lap-PROWEB/PaginasUsuario/ConfPerfilUsuario.html">Configuración de la cuenta</a></li>
-                <li><a href="/CRUDS/CRUD_Usuarios/CRUD_Usuarios.php">CRUD de usuarios</a></li>
-                <li><a href="/CRUDS/CRUD_Generos/CRUD_Generos.php">CRUD de géneros</a></li>
-                <li><a href="/CRUDS/CRUD_Albumes/CRUD_Albumes.php">CRUD de albumes</a></li>
-                <li><a href="/CRUDS/Solicitudes/Solicitudes.php">Solicitudes de Albumes</a></li>
+        <li><a href="/PIA-Lap-PROWEB/PaginasUsuario/PerfilUsuario.html">Perfil</a></li>
+                <li><a href="/PIA-Lap-PROWEB/PaginasUsuario/ConfPerfilUsuario.html">Configuración de la cuenta</a></li>
+                <li><a href="/PIA-Lap-PROWEB/CRUDS/CRUD_Usuarios/CRUD_Usuarios.php">CRUD de usuarios</a></li>
+                <li><a href="/PIA-Lap-PROWEB/CRUDS/CRUD_Generos/CRUD_Generos.php">CRUD de géneros</a></li>
+                <li><a href="/PIA-Lap-PROWEB/CRUDS/CRUD_Albumes/CRUD_Albumes.php">CRUD de albumes</a></li>
+                <li><a href="/PIA-Lap-PROWEB/CRUDS/Solicitudes/Solicitudes.php">Solicitudes de Albumes</a></li>
             </ul>
         </aside>
 

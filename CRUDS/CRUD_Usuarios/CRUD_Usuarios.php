@@ -1,7 +1,10 @@
 <?php
 include 'conexion.php'; // Conectar a la base de datos
 
-$consulta = "SELECT * FROM usuario"; 
+$consulta = "SELECT u.idUsuario, u.nombre AS nombreUsuario, u.apellido, u.correo, u.contraseña, u.foto, r.nombre AS nombreRol
+             FROM usuario u
+             INNER JOIN rol r ON u.idRol = r.idRol
+             ORDER BY u.idUsuario ASC";
 $resultado = $conexion->query($consulta);
 ?>
 <!DOCTYPE html>
@@ -37,12 +40,12 @@ $resultado = $conexion->query($consulta);
     <div class="layout">
         <aside class="side-nav">
             <ul>
-                <li><a href="C:/PIA-Lap-PROWEB/PaginasUsuario/PerfilUsuario.html">Perfil</a></li>
-                <li><a href="C:/PIA-Lap-PROWEB/PaginasUsuario/ConfPerfilUsuario.html">Configuración de la cuenta</a></li>
-                <li><a href="/CRUDS/CRUD_Usuarios/CRUD_Usuarios.php">CRUD de usuarios</a></li>
-                <li><a href="/CRUDS/CRUD_Generos/CRUD_Generos.php">CRUD de géneros</a></li>
-                <li><a href="/CRUDS/CRUD_Albumes/CRUD_Albumes.php">CRUD de albumes</a></li>
-                <li><a href="/CRUDS/Solicitudes/Solicitudes.php">Solicitudes de Albumes</a></li>
+            <li><a href="/PIA-Lap-PROWEB/PaginasUsuario/PerfilUsuario.html">Perfil</a></li>
+                <li><a href="/PIA-Lap-PROWEB/PaginasUsuario/ConfPerfilUsuario.html">Configuración de la cuenta</a></li>
+                <li><a href="/PIA-Lap-PROWEB/CRUDS/CRUD_Usuarios/CRUD_Usuarios.php">CRUD de usuarios</a></li>
+                <li><a href="/PIA-Lap-PROWEB/CRUDS/CRUD_Generos/CRUD_Generos.php">CRUD de géneros</a></li>
+                <li><a href="/PIA-Lap-PROWEB/CRUDS/CRUD_Albumes/CRUD_Albumes.php">CRUD de albumes</a></li>
+                <li><a href="/PIA-Lap-PROWEB/CRUDS/Solicitudes/Solicitudes.php">Solicitudes de Albumes</a></li>
             </ul>
         </aside>
 
@@ -101,7 +104,7 @@ $resultado = $conexion->query($consulta);
                 <th>correo</th>
                 <th>contraseña</th>
                 <th>foto</th>
-                <th>idRol</th>
+                <th>Rol</th>
             </tr>
         </thead>
         <tbody>
@@ -110,12 +113,12 @@ $resultado = $conexion->query($consulta);
                 while ($fila = $resultado->fetch_assoc()) {
                     echo "<tr>";
                     echo "<td>" . $fila['idUsuario'] . "</td>"; // Cambia 'id' por tus columnas
-                    echo "<td>" . $fila['nombre'] . "</td>"; // Ejemplo
+                    echo "<td>" . $fila['nombreUsuario'] . "</td>"; // Ejemplo
                     echo "<td>" . $fila['apellido'] . "</td>"; // Ejemplo
                     echo "<td>" . $fila['correo'] . "</td>";
                     echo "<td>" . $fila['contraseña'] . "</td>";
-                    echo "<td>" . $fila['foto'] . "</td>";
-                    echo "<td>" . $fila['idRol'] . "</td>";
+                    echo "<td><img src='" . $fila['foto'] . "' alt='Imagen no disponible' style='width:100px;height:auto;'></td>";
+                    echo "<td>" . $fila['nombreRol'] . "</td>";
                     echo "<td><a href='edit.php?id=" . $fila['idUsuario'] . "'>Editar</a></td>"; // Enlace para editar
                     echo "<td><a href='delete.php?id=" . $fila['idUsuario'] . "'>Eliminar</a></td>"; // Enlace para eliminar
                     echo "</tr>";

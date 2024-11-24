@@ -17,7 +17,7 @@ $consulta = "UPDATE albumes SET nombre='$nombre', duracion='$duracion', fechaLan
              foto='$foto', idArtista='$idArtista', url='$url', idGenero='$idGenero', estado='$estado' WHERE idAlbumes=$idAlbumes";
 
 if ($conexion->query($consulta) === TRUE) {
-    header("Location: CRUD Albumes.php");
+    header("Location: CRUD_Albumes.php");
 } else {
     echo "Error: " . $conexion->error;
 }

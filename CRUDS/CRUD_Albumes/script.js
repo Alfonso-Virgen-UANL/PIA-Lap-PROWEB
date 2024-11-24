@@ -1,24 +1,28 @@
-// Selecciona el botón y el formulario
-const btnMostrarFormulario = document.getElementById('btnAgregar');
-const formAgregar = document.getElementById('formulario');
-const btnCancelar = document.getElementById('btnCancelar');
+document.addEventListener('DOMContentLoaded', function () {
+    // Selecciona el botón y el formulario
+    const btnMostrarFormulario = document.getElementById('btnAgregar');
+    const formAgregar = document.getElementById('formulario');
+    const btnCancelar = document.getElementById('btnCancelar');
 
-window.addEventListener('load', function () {
-    formAgregar.style.display = 'none';
-    btnCancelar.style.display= 'none';
-});
+    if (btnMostrarFormulario && formAgregar && btnCancelar) {
+        // Inicialmente oculta el formulario y el botón de cancelar
+        formAgregar.style.display = 'none';
+        btnCancelar.style.display = 'none';
 
-// Agrega el evento para mostrar/ocultar el formulario
-btnMostrarFormulario.addEventListener('click', function () {
-    if (formAgregar.style.display === 'none' || formAgregar.style.display === '') {
-        formAgregar.style.display = 'block'; // Mostrar el formulario
-        btnMostrarFormulario.style.display = 'none'; // Ocultar el botón
-        btnCancelar.style.display= 'block';
+        // Evento para mostrar el formulario
+        btnMostrarFormulario.addEventListener('click', function () {
+            formAgregar.style.display = 'block'; // Mostrar el formulario
+            btnMostrarFormulario.style.display = 'none'; // Ocultar el botón agregar
+            btnCancelar.style.display = 'block'; // Mostrar el botón cancelar
+        });
+
+        // Evento para cancelar (opcionalmente solo oculta el formulario)
+        btnCancelar.addEventListener('click', function () {
+            formAgregar.style.display = 'none'; // Ocultar el formulario
+            btnMostrarFormulario.style.display = 'block'; // Mostrar el botón agregar
+            btnCancelar.style.display = 'none'; // Ocultar el botón cancelar
+        });
     } else {
-        formAgregar.style.display = 'none'; // Ocultar el formulario
-        
+        console.error('Elementos del DOM no encontrados');
     }
 });
-btnCancelar.addEventListener('click', function(){ 
-    location.reload();
-})

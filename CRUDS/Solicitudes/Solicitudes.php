@@ -36,12 +36,12 @@ $resultado = $conexion->query($consulta);
     <div class="layout">
         <aside class="side-nav">
         <ul>
-                <li><a href="C:/PIA-Lap-PROWEB/PaginasUsuario/PerfilUsuario.html">Perfil</a></li>
-                <li><a href="C:/PIA-Lap-PROWEB/PaginasUsuario/ConfPerfilUsuario.html">Configuración de la cuenta</a></li>
-                <li><a href="/CRUDS/CRUD_Usuarios/CRUD_Usuarios.php">CRUD de usuarios</a></li>
-                <li><a href="/CRUDS/CRUD_Generos/CRUD_Generos.php">CRUD de géneros</a></li>
-                <li><a href="/CRUDS/CRUD_Albumes/CRUD_Albumes.php">CRUD de albumes</a></li>
-                <li><a href="/CRUDS/Solicitudes/Solicitudes.php">Solicitudes de Albumes</a></li>
+        <li><a href="/PIA-Lap-PROWEB/PaginasUsuario/PerfilUsuario.html">Perfil</a></li>
+                <li><a href="/PIA-Lap-PROWEB/PaginasUsuario/ConfPerfilUsuario.html">Configuración de la cuenta</a></li>
+                <li><a href="/PIA-Lap-PROWEB/CRUDS/CRUD_Usuarios/CRUD_Usuarios.php">CRUD de usuarios</a></li>
+                <li><a href="/PIA-Lap-PROWEB/CRUDS/CRUD_Generos/CRUD_Generos.php">CRUD de géneros</a></li>
+                <li><a href="/PIA-Lap-PROWEB/CRUDS/CRUD_Albumes/CRUD_Albumes.php">CRUD de albumes</a></li>
+                <li><a href="/PIA-Lap-PROWEB/CRUDS/Solicitudes/Solicitudes.php">Solicitudes de Albumes</a></li>
             </ul>
 
         </aside>
@@ -122,9 +122,8 @@ $resultado = $conexion->query($consulta);
                     echo "<td>" . $fila['nombre'] . "</td>"; // Ejemplo
                     echo "<td>" . $fila['duracion'] . "</td>"; // Ejemplo
                     echo "<td>" . $fila['fechaLanzamiento'] . "</td>";
-                    echo "<td>" . $fila['foto'] . "</td>";
-                    echo "<td>" . $fila['idArtista'] . "</td>";
-                    echo "<td>" . $fila['url'] . "</td>";
+                    echo "<td><img src='" . $fila['foto'] . "' alt='Imagen no disponible' style='width:100px;height:auto;'></td>";                    echo "<td>" . $fila['idArtista'] . "</td>";
+                    echo "<td><a href='" . $fila['url'] . "'>Escucha aquí</a></td>";
                     echo "<td>" . $fila['idGenero'] . "</td>";
                     echo "<td>" . $fila['estado'] . "</td>";
                     echo "</tr>";
