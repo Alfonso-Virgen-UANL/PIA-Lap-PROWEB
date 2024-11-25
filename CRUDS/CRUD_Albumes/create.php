@@ -16,8 +16,8 @@ $consulta = "INSERT INTO albumes (nombre, duracion, fechaLanzamiento, foto, idAr
              VALUES ('$nombre', '$duracion', '$fechaLanzamiento', '$foto', '$idArtista', '$url','$idGenero', '$estado' )";
 
 if ($conexion->query($consulta) === TRUE) {
-    echo "Usuario agregado exitosamente. <a href='CRUD Usuarios.php'> Volver</a>";
-   header("Location: CRUD Albumes.php");
+    //echo "Usuario agregado exitosamente. <a href='CRUD Usuarios.php'> Volver</a>";
+   header("Location: CRUD_Albumes.php");
 } else {
     echo "Error: " . $conexion->error;
 }
