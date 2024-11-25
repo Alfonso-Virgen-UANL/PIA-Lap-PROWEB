@@ -59,6 +59,12 @@ main {
   justify-content: space-between;
   margin: 20px 0;
 }
+.catalogo-header h2 {
+  color:#ecafb7;
+  font-style: italic;
+  font-size: xx-large;
+  font-weight: bold;
+}
 
 #filter-button {
   background-color: #a62323;
@@ -75,18 +81,18 @@ main {
 
 /* Carouseles */
 .carousel {
-  margin-bottom: 30px;
+  margin-bottom: 50px;
 }
 
 .carousel h3 {
-  margin-bottom: 10px;
+  margin-bottom: 50px;
 }
 
 .carousel-container {
   display: flex;
-  gap: 15px;
+  gap: 60px;
   overflow-x: auto;
-  padding: 10px;
+  padding: 60px;
   scroll-behavior: smooth;
 }
 
@@ -98,21 +104,34 @@ main {
   background: #a62323;
   border-radius: 4px;
 }
-
 .carousel-item {
-  flex: 0 0 auto;
-  width: 150px;
-  height: 150px;
-  border-radius: 10px;
-  overflow: hidden;
+  text-align: center;
+  min-width: 200px; /* Ajusta según el tamaño de las imágenes */
 }
 
 .carousel-item img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
+  width: 100%; /* Ajusta según el diseño */
+  max-width: 200px; /* Limitar el tamaño máximo de las imágenes */
+  height: auto; /* Mantener la proporción */
+  display: block;
+  margin: 0 auto;
+  border-radius: 15px;
 }
-
+.carousel-item:hover {
+  transform: scale(1.2); /* Escala al 120% */
+  box-shadow: 0px 10px 15px rgba(0, 0, 0, 0.3); /* Sombra al hacer hover */
+  z-index: 10; /* Asegura que el álbum quede encima de otros elementos */
+}
+.carousel-item p {
+  word-wrap: break-word;
+  margin-top: 30px;
+  font-size: 16px; /* Ajusta el tamaño de la fuente */
+  color: #ffffff; /* Cambia el color si lo necesitas */
+}
+.carousel-section h3 {
+  font-size: x-large;
+  color:#ffd2d2;
+}
 /* Ventana modal */
 #filter-modal {
   position: fixed;
