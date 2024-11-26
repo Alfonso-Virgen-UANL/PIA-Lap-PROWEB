@@ -1,6 +1,6 @@
 <?php
 include 'VerPriv.php';
-verificarPrivilegio("Ver contenido");
+verificarPrivilegio("Escribir reseña");
 
 
 // Conexión a la base de datos
