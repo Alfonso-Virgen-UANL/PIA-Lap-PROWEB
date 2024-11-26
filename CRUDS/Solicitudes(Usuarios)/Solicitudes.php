@@ -1,4 +1,6 @@
 <?php
+include 'VerPriv.php';
+verificarPrivilegio("Escribir reseña");
 include 'conexion.php'; // Conectar a la base de datos
 $consulta = "SELECT a.idAlbumes, a.nombre AS nombreAlbumes, a.duracion, a.fechaLanzamiento, a.foto, 
                 ar.nombre AS nombreArtistas, a.url, g.nombre AS Genero, a.estado

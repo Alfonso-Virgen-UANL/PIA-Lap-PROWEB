@@ -1,3 +1,8 @@
+<?php
+include 'VerPriv.php';
+verificarPrivilegio("Escribir reseña");
+?>
+
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -16,22 +21,22 @@
                     <td rowspan="1"><input type="text" placeholder="🔎¿Qué quieres buscar?" class="busqueda"></td>
                     <td rowspan="3">  
                         <a href="/Home/catalogo.html" class="NavMedio"> Catálogo</a>   
-                        <a href="/AcercaDe/AcercaDe(NR).html" class="NavMedio2">| Acerca de</a>
+                        <a href="/AcercaDe/AcercaDe(UyA).html" class="NavMedio2">| Acerca de</a>
                     </td>
                     <td rowspan="3" class="fill"></td>
                     <td rowspan="3">
-                        <a href="/Registro e inicio de sesion/Login.html" class="NavDer">Login</a> 
-                        <a href="/Registro e inicio de sesion/Registro.html" class="NavDer2">| Registro</a>
+                        <a href="perfil.html" class="NavDer">Mi perfil</a> 
                     </td>
                 </tr>
                 <tr>
-                    <td><a href="/HomeTendencias/Home.html" class="TextoNav">| Home</a></td>
+                    <td><a href="/Home/Inicio.html" class="TextoNav">| Home</a></td>
                 </tr>
             </table>
         </nav>
     </header>
+
     <main>
-        <a href="/Contactanos/Contactanos(NR).html" class="float">¡Contactanos!
+        <a href="/Contactanos/Contactanos(UyA).html" class="float">¡Contactanos!
         <i class="fa fa-plus my-float"></i>
         </a>
 
@@ -68,5 +73,6 @@
             En Albumify, no se trata solo de la música, sino de la conexión. Únete a nosotros y forma parte de una comunidad donde tus opiniones son valoradas y tus descubrimientos pueden inspirar a otros. Comparte, comenta y descubre con nosotros lo mejor del mundo musical.
         </p>
     </main>
+    
 </body>
 </html>

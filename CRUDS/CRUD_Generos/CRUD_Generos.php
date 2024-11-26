@@ -1,4 +1,6 @@
 <?php
+include 'VerPriv.php';
+verificarPrivilegio("Gestionar usuarios");
 include 'conexion.php'; // Conectar a la base de datos
 
 $consulta = "SELECT * FROM generos"; 
@@ -37,8 +39,8 @@ $resultado = $conexion->query($consulta);
     <div class="layout">
         <aside class="side-nav">
         <ul>
-        <li><a href="/PIA-Lap-PROWEB/PaginasUsuario/PerfilUsuario.html">Perfil</a></li>
-                <li><a href="/PIA-Lap-PROWEB/PaginasUsuario/ConfPerfilUsuario.html">Configuración de la cuenta</a></li>
+                <li><a href="/PIA-Lap-PROWEB/CRUDS/PerfilAdmin.html">Perfil</a></li>
+                <li><a href="/PIA-Lap-PROWEB/PaginasUsuario/ConfPerfilAdmin.php">Configuración de la cuenta</a></li>
                 <li><a href="/PIA-Lap-PROWEB/CRUDS/CRUD_Usuarios/CRUD_Usuarios.php">CRUD de usuarios</a></li>
                 <li><a href="/PIA-Lap-PROWEB/CRUDS/CRUD_Generos/CRUD_Generos.php">CRUD de géneros</a></li>
                 <li><a href="/PIA-Lap-PROWEB/CRUDS/CRUD_Albumes/CRUD_Albumes.php">CRUD de albumes</a></li>
