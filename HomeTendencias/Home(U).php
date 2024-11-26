@@ -1,0 +1,65 @@
+<?php
+include 'VerPriv.php';
+verificarPrivilegio("Ver contenido");
+?>
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Álbumes en Tendencia - Albumify</title>
+  <link rel="stylesheet" href="Home.css">
+</head>
+<body>
+  <header>
+    <nav>
+      <table class="NavTab">
+        <tr>
+          <td rowspan="3"><img src="Images/AlbumifyLogo.png" class="logo" alt="Logo Albumify"></td>
+          <td rowspan="1"><input type="text" placeholder="🔎 ¿Qué quieres buscar?" class="busqueda"></td>
+          <td rowspan="3">
+            <a href="/Home/catalogo.php" class="NavMedio">Catálogo</a>
+            <a href="/AcercaDe/AcercaDe(NR).html" class="NavMedio2">| Acerca de</a>
+          </td>
+          <td rowspan="3" class="fill"></td>
+          <td rowspan="3">
+            <a href="http://localhost/PIA-Lap-PROWEB/PaginasUsuario/PerfilUsuario.html" class="NavDer">Mi Perfil</a>
+          </td>
+        </tr>
+        <tr>
+          <td><a href="/HomeTendencias/Home.html" class="TextoNav">| Home</a></td>
+        </tr>
+      </table>
+    </nav>
+  </header>
+
+  <main>
+    <section class="albums-trending">
+      <h2>Álbumes en tendencia 🔥</h2>
+      <div class="album-card">
+        <img src="images/ballads1.jpg" alt="Ballads 1" class="album-image">
+        <div class="album-info">
+          <h3>Ballads 1</h3>
+          <p>Artista: Joji</p>
+          <p>Género: R&B</p>
+          <p>Lanzamiento: 26 de Octubre de 2018</p>
+          <p>(376 calificaciones)</p>
+          <button class="btn-details">Más detalles</button>
+        </div>
+      </div>
+      <div class="album-card">
+        <img src="images/swimming.jpg" alt="Swimming" class="album-image">
+        <div class="album-info">
+          <h3>Swimming</h3>
+          <p>Artista: Mac Miller</p>
+          <p>Género: Hip hop</p>
+          <p>Lanzamiento: 3 de Agosto de 2018</p>
+          <p>(429 calificaciones)</p>
+          <button class="btn-details">Más detalles</button>
+        </div>
+      </div>
+    </section>
+  </main>
+</body>
+</html>
