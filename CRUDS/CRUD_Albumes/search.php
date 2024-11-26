@@ -11,16 +11,26 @@ if ($conexion->connect_error) {
 $busqueda = isset($_GET['busqueda']) ? $conexion->real_escape_string($_GET['busqueda']) : '';
 
 // Consulta base
-$sql = "SELECT * FROM albumes where estado=1"; 
+$sql = "SELECT a.idAlbumes, a.nombre AS nombreAlbumes, a.duracion, a.fechaLanzamiento, a.foto, 
+                ar.nombre AS nombreArtistas, a.url, g.nombre AS Genero, a.estado
+         FROM albumes a
+         INNER JOIN artista ar ON a.idArtista = ar.idArtista
+         INNER JOIN generos g ON a.idGenero = g.idGenero
+         WHERE a.estado = 1"; 
 
 // Si hay una búsqueda, modifica la consulta
 if (!empty($busqueda)) {
-    $sql .= " WHERE nombre LIKE '%$busqueda%' OR idAlbumes LIKE '%$busqueda%' 
-    OR idGenero LIKE '%$busqueda%'";
+    $sql .= " AND (a.nombre LIKE '%$busqueda%' 
+              OR a.idAlbumes LIKE '%$busqueda%' 
+              OR ar.nombre LIKE '%$busqueda%' 
+              OR g.nombre LIKE '%$busqueda%')";
 }
 
 // Ejecutar la consulta
 $resultado = $conexion->query($sql);
+
+
+
 ?>
  <!DOCTYPE html>
 <html lang="es">
@@ -55,12 +65,12 @@ $resultado = $conexion->query($sql);
     <div class="layout">
         <aside class="side-nav">
             <ul>
-                <li><a href="C:/PIA-Lap-PROWEB/PaginasUsuario/PerfilUsuario.html">Perfil</a></li>
-                <li><a href="C:/PIA-Lap-PROWEB/PaginasUsuario/ConfPerfilUsuario.html">Configuración de la cuenta</a></li>
-                <li><a href="/PaginasAdministrativas/CRUD Usuarios/CRUD Usuarios.php">CRUD de usuarios</a></li>
-                <li><a href="/PaginasAdministrativas/CRUD Generos/CRUD Generos.php">CRUD de géneros</a></li>
-                <li><a href="/PaginasAdministrativas/CRUD Albumes/CRUD Albumes.php">CRUD de albumes</a></li>
-                <li><a href="/PaginasAdministrativas/Solicitudes/Solicitudes.php">Solicitudes de Albumes</a></li>
+            <li><a href="/PIA-Lap-PROWEB/PaginasUsuario/PerfilUsuario.html">Perfil</a></li>
+                <li><a href="/PIA-Lap-PROWEB/PaginasUsuario/ConfPerfilUsuario.html">Configuración de la cuenta</a></li>
+                <li><a href="/PIA-Lap-PROWEB/CRUDS/CRUD_Usuarios/CRUD_Usuarios.php">CRUD de usuarios</a></li>
+                <li><a href="/PIA-Lap-PROWEB/CRUDS/CRUD_Generos/CRUD_Generos.php">CRUD de géneros</a></li>
+                <li><a href="/PIA-Lap-PROWEB/CRUDS/CRUD_Albumes/CRUD_Albumes.php">CRUD de albumes</a></li>
+                <li><a href="/PIA-Lap-PROWEB/CRUDS/Solicitudes/Solicitudes.php">Solicitudes de Albumes</a></li>
             </ul>
         </aside>
 
@@ -74,36 +84,32 @@ $resultado = $conexion->query($sql);
                 <th>Duración</th>
                 <th>Fecha de Lanzamiento</th>
                 <th>foto</th>
-                <th>idArtista</th>
+                <th>Artista</th>
                 <th>url</th>
-                <th>idGenero</th>
+                <th>Genero</th>
                 <th>estado</th>
             </tr>
         </thead>
         <tbody>
             <?php
             if ($resultado->num_rows > 0) {
-                while ($fila = $resultado->fetch_assoc()) { ?>
-                    <tr>
-                        <td><?php echo $fila['idAlbumes']; ?></td>
-                        <td><?php echo $fila['nombre']; ?></td>
-                        <td><?php echo $fila['apellido']; ?></td>
-                        <td><?php echo $fila['duracion']; ?></td>
-                        <td><?php echo $fila['fechaLanzamiento']; ?></td>
-                        <td><?php echo $fila['foto']; ?></td>
-                        <td><?php echo $fila['idArtista']; ?></td>
-                        <td><?php echo $fila['url']; ?></td>
-                        <td><?php echo $fila['idGenero']; ?></td>
-                        <td><?php echo $fila['estado']; ?></td>
-                        
-                        <td>
-                            <a href="edit.php?id=<?php echo $fila['idAlbumes']; ?>">Editar</a>
-                            <a href="delete.php?id=<?php echo $fila['idAlbumes']; ?>">Eliminar</a>
-                        </td>
-                    </tr>
-                <?php }
+                while ($fila = $resultado->fetch_assoc()) {
+                    echo "<tr>";
+                    echo "<td>" . $fila['idAlbumes'] . "</td>";
+                    echo "<td>" . $fila['nombreAlbumes'] . "</td>";
+                    echo "<td>" . $fila['duracion'] . "</td>";
+                    echo "<td>" . $fila['fechaLanzamiento'] . "</td>";
+                    echo "<td><img src='" . $fila['foto'] . "' alt='Imagen no disponible' style='width:100px;height:auto;'></td>";
+                    echo "<td>" . $fila['nombreArtistas'] . "</td>";  // Nombre del artista
+                    echo "<td><a href='" . $fila['url'] . "'>Escucha aquí</a></td>";
+                    echo "<td>" . $fila['Genero'] . "</td>";  // Nombre del género
+                    echo "<td>" . $fila['estado'] . "</td>";
+                    echo "<td><a href='edit.php?id=" . $fila['idAlbumes'] . "'>Editar</a></td>";
+                    echo "<td><a href='delete.php?id=" . $fila['idAlbumes'] . "'>Eliminar</a></td>";
+                    echo "</tr>";
+                }
             } else {
-                echo "<tr><td colspan='5'>No se encontraron resultados para '$busqueda'</td></tr>";
+                echo "<tr><td colspan='9'>No hay registros</td></tr>";
             }
             ?>
         </tbody>
