@@ -13,7 +13,7 @@ $conexion = new mysqli($host, $usuario, $contraseña, $baseDatos);
 if ($conexion->connect_error) {
     die("Error de conexión: " . $conexion->connect_error);
 }
-session_start();
+
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     if (!isset($_SESSION['idUsuario'])) {
@@ -149,17 +149,59 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
     <!-- Popup para reseñas -->
     <div class="popup-overlay" id="popupOverlay">
-        <div class="popup-content">
-            <button class="close-btn" id="closePopup">X</button>
-            <h3>Crear Reseña</h3>
-            <form method="POST">
-                <label for="reviewText">Reseña (300 caracteres máx):</label>
-                <textarea id="reviewText" name="reviewText" maxlength="300" required></textarea>
-                <label for="rating">Calificación (0-10):</label>
-                <input type="number" id="rating" name="rating" min="0" max="10" required>
-                <button type="submit">Enviar</button>
-            </form>
-        </div>
+    <div class="popup-content">
+        <button class="close-btn" id="closePopup">X</button>
+        <h3>Crear Reseña</h3>
+        <form id="reviewForm">
+            <input type="hidden" id="idAlbumes" name="idAlbumes" value="<?= $idAlbumes ?>"> <!-- ID del álbum -->
+            <label for="reviewText">Reseña (300 caracteres máx):</label>
+            <textarea id="reviewText" name="reviewText" maxlength="300" required></textarea>
+            <label for="rating">Calificación (1-10):</label>
+            <input type="number" id="rating" name="rating" min="1" max="10" required>
+            <button type="submit" id="submitReview">Enviar</button>
+        </form>
+    </div>
+    <script>
+    document.getElementById('reviewForm').addEventListener('submit', function (e) {
+        e.preventDefault(); // Evitar el comportamiento por defecto del formulario
+
+        // Obtener los datos del formulario
+        const idAlbumes = document.getElementById('idAlbumes').value;
+        const reviewText = document.getElementById('reviewText').value;
+        const rating = document.getElementById('rating').value;
+
+        // Validar los datos localmente
+        if (!reviewText || rating < 1 || rating > 10) {
+            alert('Por favor, ingresa una reseña válida y una calificación entre 1 y 10.');
+            return;
+        }
+
+        // Enviar los datos mediante fetch
+        fetch('PaginaAlbum(U).php', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/x-www-form-urlencoded',
+            },
+            body: new URLSearchParams({
+                idAlbumes: idAlbumes,
+                reviewText: reviewText,
+                rating: rating
+            })
+        })
+        .then(response => response.text())
+        .then(data => {
+            alert(data); // Mostrar la respuesta del servidor
+            document.getElementById('popupOverlay').style.display = 'none'; // Cerrar el popup
+            document.getElementById('reviewForm').reset(); // Limpiar el formulario
+        })
+        .catch(error => {
+            console.error('Error al enviar la reseña:', error);
+            alert('Hubo un error al enviar tu reseña. Por favor, inténtalo de nuevo.');
+        });
+    });
+</script>
+
+</div>
     </div>
 
     <script src="CreaReseña.js"></script>
