@@ -1,3 +1,8 @@
+<?php
+include 'VerPriv.php';
+verificarPrivilegio("Ver contenido");
+?>
+
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -19,8 +24,7 @@
           </td>
           <td rowspan="3" class="fill"></td>
           <td rowspan="3">
-            <a href="/Registro e inicio de sesion/Login.html" class="NavDer">Login</a>
-            <a href="/Registro e inicio de sesion/Registro.html" class="NavDer2">| Registro</a>
+            <a href="http://localhost/PIA-Lap-PROWEB/PaginasUsuario/PerfilUsuario.html" class="NavDer">Mi Perfil</a>
           </td>
         </tr>
         <tr>

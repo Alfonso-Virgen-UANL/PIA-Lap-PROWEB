@@ -11,25 +11,16 @@ if ($conexion->connect_error) {
 $busqueda = isset($_GET['busqueda']) ? $conexion->real_escape_string($_GET['busqueda']) : '';
 
 // Consulta base
-$sql = "SELECT a.idAlbumes, a.nombre AS nombreAlbumes, a.duracion, a.fechaLanzamiento, a.foto, 
-                ar.nombre AS nombreArtistas, a.url, g.nombre AS Genero, a.estado
-         FROM albumes a
-         INNER JOIN artista ar ON a.idArtista = ar.idArtista
-         INNER JOIN generos g ON a.idGenero = g.idGenero"; 
+$sql = "SELECT * FROM usuario"; // Cambia "usuario" por el nombre de tu tabla
 
 // Si hay una búsqueda, modifica la consulta
 if (!empty($busqueda)) {
-    $sql .= " AND (a.nombre LIKE '%$busqueda%' 
-              OR a.idAlbumes LIKE '%$busqueda%' 
-              OR ar.nombre LIKE '%$busqueda%' 
-              OR g.nombre LIKE '%$busqueda%')";
+    $sql .= " WHERE nombre LIKE '%$busqueda%' OR apellido LIKE '%$busqueda%' 
+    OR correo LIKE '%$busqueda%' OR idUsuario LIKE '%$busqueda%'";
 }
 
 // Ejecutar la consulta
 $resultado = $conexion->query($sql);
-
-
-
 ?>
  <!DOCTYPE html>
 <html lang="es">
@@ -80,33 +71,28 @@ $resultado = $conexion->query($sql);
             <tr>
                 <th>ID</th>
                 <th>Nombre</th>
-                <th>Duración</th>
-                <th>Fecha de Lanzamiento</th>
-                <th>foto</th>
-                <th>Artista</th>
-                <th>url</th>
-                <th>Genero</th>
-                <th>estado</th>
+                <th>Apellido</th>
+                <th>Correo</th>
+                <th>Acciones</th>
             </tr>
         </thead>
         <tbody>
             <?php
             if ($resultado->num_rows > 0) {
-                while ($fila = $resultado->fetch_assoc()) {
-                    echo "<tr>";
-                    echo "<td>" . $fila['idAlbumes'] . "</td>";
-                    echo "<td>" . $fila['nombreAlbumes'] . "</td>";
-                    echo "<td>" . $fila['duracion'] . "</td>";
-                    echo "<td>" . $fila['fechaLanzamiento'] . "</td>";
-                    echo "<td><img src='" . $fila['foto'] . "' alt='Imagen no disponible' style='width:100px;height:auto;'></td>";
-                    echo "<td>" . $fila['nombreArtistas'] . "</td>";  // Nombre del artista
-                    echo "<td><a href='" . $fila['url'] . "'>Escucha aquí</a></td>";
-                    echo "<td>" . $fila['Genero'] . "</td>";  // Nombre del género
-                    echo "<td>" . $fila['estado'] . "</td>";
-                    echo "</tr>";
-                }
+                while ($fila = $resultado->fetch_assoc()) { ?>
+                    <tr>
+                        <td><?php echo $fila['idUsuario']; ?></td>
+                        <td><?php echo $fila['nombre']; ?></td>
+                        <td><?php echo $fila['apellido']; ?></td>
+                        <td><?php echo $fila['correo']; ?></td>
+                        <td>
+                            <a href="edit.php?id=<?php echo $fila['idUsuario']; ?>">Editar</a>
+                            <a href="delete.php?id=<?php echo $fila['idUsuario']; ?>">Eliminar</a>
+                        </td>
+                    </tr>
+                <?php }
             } else {
-                echo "<tr><td colspan='9'>No hay registros</td></tr>";
+                echo "<tr><td colspan='5'>No se encontraron resultados para '$busqueda'</td></tr>";
             }
             ?>
         </tbody>

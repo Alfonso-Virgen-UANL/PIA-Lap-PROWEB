@@ -15,7 +15,8 @@ $sql = "SELECT a.idAlbumes, a.nombre AS nombreAlbumes, a.duracion, a.fechaLanzam
                 ar.nombre AS nombreArtistas, a.url, g.nombre AS Genero, a.estado
          FROM albumes a
          INNER JOIN artista ar ON a.idArtista = ar.idArtista
-         INNER JOIN generos g ON a.idGenero = g.idGenero"; 
+         INNER JOIN generos g ON a.idGenero = g.idGenero
+         WHERE a.estado = 1"; 
 
 // Si hay una búsqueda, modifica la consulta
 if (!empty($busqueda)) {
@@ -103,6 +104,8 @@ $resultado = $conexion->query($sql);
                     echo "<td><a href='" . $fila['url'] . "'>Escucha aquí</a></td>";
                     echo "<td>" . $fila['Genero'] . "</td>";  // Nombre del género
                     echo "<td>" . $fila['estado'] . "</td>";
+                    echo "<td><a href='edit.php?id=" . $fila['idAlbumes'] . "'>Editar</a></td>";
+                    echo "<td><a href='delete.php?id=" . $fila['idAlbumes'] . "'>Eliminar</a></td>";
                     echo "</tr>";
                 }
             } else {

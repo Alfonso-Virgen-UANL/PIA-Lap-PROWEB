@@ -1,12 +1,14 @@
 <?php
 include 'conexion.php'; // Conectar a la base de datos
+
 $consulta = "SELECT a.idAlbumes, a.nombre AS nombreAlbumes, a.duracion, a.fechaLanzamiento, a.foto, 
                 ar.nombre AS nombreArtistas, a.url, g.nombre AS Genero, a.estado
              FROM albumes a
              INNER JOIN artista ar ON a.idArtista = ar.idArtista
              INNER JOIN generos g ON a.idGenero = g.idGenero
-             WHERE estado = 0
-             ORDER BY a.idArtista ASC";  
+             WHERE estado = 1
+             ORDER BY a.idArtista ASC"; 
+
 $resultado = $conexion->query($consulta);
 ?>
 <!DOCTYPE html>
@@ -14,7 +16,7 @@ $resultado = $conexion->query($consulta);
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Albumfy - Solicitudes</title>
+    <title>Albumfy - Gestor de Albumes</title>
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
@@ -42,7 +44,7 @@ $resultado = $conexion->query($consulta);
     <div class="layout">
         <aside class="side-nav">
         <ul>
-        <li><a href="/PIA-Lap-PROWEB/PaginasUsuario/PerfilUsuario.html">Perfil</a></li>
+                <li><a href="/PIA-Lap-PROWEB/PaginasUsuario/PerfilUsuario.html">Perfil</a></li>
                 <li><a href="/PIA-Lap-PROWEB/PaginasUsuario/ConfPerfilUsuario.html">Configuración de la cuenta</a></li>
                 <li><a href="/PIA-Lap-PROWEB/CRUDS/CRUD_Usuarios/CRUD_Usuarios.php">CRUD de usuarios</a></li>
                 <li><a href="/PIA-Lap-PROWEB/CRUDS/CRUD_Generos/CRUD_Generos.php">CRUD de géneros</a></li>
@@ -53,12 +55,12 @@ $resultado = $conexion->query($consulta);
         </aside>
 
         <main class="content">
-            <h2>Solicitudes</h2>
+            <h2>Gestión de Albumes</h2>
             <div class="top-bar">
                 
             <div class="search-bar">
                 <form method="GET" action="search.php">
-                    <input type="text" id="search" name="busqueda" placeholder="Buscar por ID, nombre" required />
+                    <input type="text" id="search" name="busqueda" placeholder="Buscar por ID, nombre o genero" required />
                     <button class="btn-search" type="submit">Buscar</button>
                 </form>
                 
@@ -80,7 +82,6 @@ $resultado = $conexion->query($consulta);
     <label for="duracionseg">Duracion (seg):</label>
     <input style="width: 50px;" type="number" id="duracionseg" name="duracionseg" required>
     <br>
-
 
     <label for="fechaLanzamiento">Fecha de Lanzamiento:</label>
     <input type="date" id="fechaLanzamiento" name="fechaLanzamiento" required>
@@ -105,7 +106,7 @@ $resultado = $conexion->query($consulta);
     <label for="url">Link:</label>
     <input type="url" id="url" name="url" required>
     <br>
-
+    
     <label for="idGenero">Género:</label>
     <select id="idGenero" name="idGenero" required>
     <?php
@@ -154,11 +155,11 @@ $resultado = $conexion->query($consulta);
                     echo "<td><a href='" . $fila['url'] . "'>Escucha aquí</a></td>";
                     echo "<td>" . $fila['Genero'] . "</td>";
                     echo "<td>" . $fila['estado'] . "</td>";
-                    echo "<td><a href='aprobar.php?id=" . $fila['idAlbumes'] . "'>Aprobar</a></td>";
+                    echo "<td><a href='edit.php?id=" . $fila['idAlbumes'] . "'>Editar</a></td>"; // Enlace para editar
+                    echo "<td><a href='delete.php?id=" . $fila['idAlbumes'] . "'>Eliminar</a></td>"; // Enlace para eliminar
                     echo "</tr>";
                 }
-            }
-             else {
+            } else {
                 echo "<tr><td colspan='3'>No hay registros</td></tr>";
             }
             ?>
