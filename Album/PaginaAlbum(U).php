@@ -51,14 +51,13 @@ if ($resultadoAlbum->num_rows > 0) {
                     </td>
                     <td rowspan="3" class="fill"></td>
                     <td rowspan="3">
-                        <a href="/Registro e inicio de sesion/Login.html" class="NavDer">Login</a> 
-                        <a href="/Registro e inicio de sesion/Registro.html" class="NavDer2">| Registro</a>
+                        <a href="/PaginasUsuario/PerfilUsuario.php" class="NavDer">Mi perfil</a> 
                     </td>
                 </tr>
                 <tr>
-                  <td><a href="/HomeTendencias/Home.html" class="TextoNav">| Home</a></td>
+                    <td><a href="/HomeTendencias/Home.html" class="TextoNav">| Home</a></td>
                 </tr>
-              </table>
+            </table>
         </nav>
     </header>
     <main>
@@ -83,9 +82,14 @@ if ($resultadoAlbum->num_rows > 0) {
             <div class="col-3">
             </div>
             <div id="califcont" class="col-3">
-                <img height="250" width="250" src="/ContenidoAlbumify/AlbumifyMarco.png">
-                <div id="calif">
-                    <p>7</p>
+                <div>
+                    <img height="250" width="250" src="/ContenidoAlbumify/AlbumifyMarco.png">
+                    <div id="calif">
+                        <p>7</p>
+                    </div>
+                </div>
+                <div class="CreaRes">
+                    <a href="#" id="crearReseñaBtn">Crear Reseña</a>
                 </div>
             </div>
         </div>
@@ -96,8 +100,24 @@ if ($resultadoAlbum->num_rows > 0) {
                 Beyoncé, Rob49, 21 Savage, The Weeknd, Swae Lee, entre otros.</p>
         </div>
         <div class="row">
-            <iframe src="/Reseñas/Reseñas(UyA).html" height="300em" width="800em"></iframe>
+            <iframe src="/Reseñas/Reseñas(NR).html" height="300em" width="800em"></iframe>
         </div>
     </main>
+
+    <div class="popup-overlay" id="popupOverlay">
+        <div class="popup-content">
+            <button class="close-btn" id="closePopup">X</button>
+            <h3>Crear Reseña</h3>
+            <form id="reviewForm">
+                <label for="reviewText">Reseña (300 caracteres máx):</label>
+                <textarea id="reviewText" maxlength="300" required></textarea>
+                <label for="rating">Calificación (0-10):</label>
+                <input type="number" id="rating" min="0" max="10" required>
+                <button type="submit">Enviar</button>
+            </form>
+        </div>
+    </div>
+
+    <script src="CreaReseña.js"></script>
 </body>
 </html>
