@@ -105,9 +105,16 @@ header .logo {
     display: flex;
     align-items: center;
     background: #2e2e2e;
-    padding: 15px;
+    padding: 30px;
     border-radius: 10px;
     margin-bottom: 20px;
+  }
+
+  .album-card:hover{
+    transform: scale(1.01); /* Escala al 120% */
+    box-shadow: 0px 10px 15px rgba(0, 0, 0, 0.3); /* Sombra al hacer hover */
+    z-index: 5; /* Asegura que el elemento quede encima de otros elementos */
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
   }
   
   .album-card img {
@@ -117,6 +124,12 @@ header .logo {
     margin-right: 20px;
   }
   
+  .album-info {
+    padding-left: 2%;
+    margin-top: 0;
+    padding-top: 0%;
+  }
+
   .album-info h3 {
     font-size: 18px;
     margin-bottom: 10px;
@@ -124,10 +137,11 @@ header .logo {
   
   .album-info p {
     font-size: 14px;
-    margin: 2px 0;
+    margin: 2px;
   }
   
   .btn-details {
+    position:absolute;
     background-color: #a62323;
     color: white;
     border: none;
