@@ -36,7 +36,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 $_SESSION['idRol'] = $row['idRol'];
 
                 // Redirigir al usuario a la página principal o donde sea necesario
-                header('Location: http://localhost/PIA-Lap-PROWEB/HomeTendencias/Home(U).php');
+                header('Location: http://localhost:3000/HomeTendencias/Home(U).php');
                 exit();
             } else {
                 // Contraseña incorrecta
