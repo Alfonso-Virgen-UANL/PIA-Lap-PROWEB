@@ -2,6 +2,7 @@
 include 'VerPriv.php';
 verificarPrivilegio("Ver contenido");
 
+
 // Conexión a la base de datos
 $host = '127.0.0.1';
 $usuario = 'root';
@@ -12,7 +13,30 @@ $conexion = new mysqli($host, $usuario, $contraseña, $baseDatos);
 if ($conexion->connect_error) {
     die("Error de conexión: " . $conexion->connect_error);
 }
+session_start();
 
+if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+    if (!isset($_SESSION['idUsuario'])) {
+        die("Error: Debes iniciar sesión para publicar una reseña.");
+    }
+
+    $idUsuario = $_SESSION['idUsuario']; // Obtener el idUsuario desde la sesión
+    $idAlbumes = intval($_POST['idAlbumes']); // Asegúrate de enviar este dato en el formulario
+    $comentario = $conexion->real_escape_string(trim($_POST['reviewText']));
+    $calificacion = intval($_POST['rating']);
+    $fecha = date('Y-m-d'); // Fecha actual
+
+    $stmt = $conexion->prepare("INSERT INTO reseña (fecha, Calificacion, comentario, idUsuario, idAlbumes) VALUES (?, ?, ?, ?, ?)");
+    $stmt->bind_param("sisii", $fecha, $calificacion, $comentario, $idUsuario, $idAlbumes);
+
+    if ($stmt->execute()) {
+        echo "<script>alert('Reseña creada exitosamente.');</script>";
+    } else {
+        echo "<script>alert('Error al crear la reseña: {$stmt->error}');</script>";
+    }
+
+    $stmt->close();
+}
 // Obtener el ID del álbum desde la URL
 $idAlbumes = isset($_GET['id']) ? intval($_GET['id']) : 0;
 
@@ -25,6 +49,25 @@ if ($resultadoAlbum->num_rows > 0) {
     $album = $resultadoAlbum->fetch_assoc();
 } else {
     die("Álbum no encontrado.");
+}
+
+// Insertar reseña si se envía el formulario
+if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+    $idUsuario = 1; // Reemplaza con el ID del usuario actual desde la sesión
+    $comentario = $conexion->real_escape_string(trim($_POST['reviewText']));
+    $calificacion = intval($_POST['rating']);
+    $fecha = date('Y-m-d'); // Fecha actual
+
+    $stmt = $conexion->prepare("INSERT INTO reseña (fecha, calificacion, comentario, idUsuario, idAlbumes) VALUES (?, ?, ?, ?, ?)");
+    $stmt->bind_param("sisii", $fecha, $calificacion, $comentario, $idUsuario, $idAlbumes);
+
+    if ($stmt->execute()) {
+        echo "<script>alert('Reseña creada exitosamente.');</script>";
+    } else {
+        echo "<script>alert('Error al crear la reseña: {$stmt->error}');</script>";
+    }
+
+    $stmt->close();
 }
 ?>
 
@@ -41,46 +84,45 @@ if ($resultadoAlbum->num_rows > 0) {
 <body>
     <header>
         <nav>
-            <table class="NavTab">
-                <tr>
-                    <td rowspan="3"><img src="/ContenidoAlbumify/AlbumifyLogo.png" class="logo"></td>
-                    <td rowspan="1"><input type="text" placeholder="🔎¿Qué quieres buscar?" class="busqueda"></td>
-                    <td rowspan="3">  
-                        <a href="/Home/catalogo.html" class="NavMedio"> Catálogo</a>   
-                        <a href="/AcercaDe/AcercaDe(NR).html" class="NavMedio2">| Acerca de</a>
-                    </td>
-                    <td rowspan="3" class="fill"></td>
-                    <td rowspan="3">
-                        <a href="/PaginasUsuario/PerfilUsuario.php" class="NavDer">Mi perfil</a> 
-                    </td>
-                </tr>
-                <tr>
-                    <td><a href="/HomeTendencias/Home.html" class="TextoNav">| Home</a></td>
-                </tr>
-            </table>
+        <table class="NavTab">
+        <tr>
+          <td rowspan="3"><img src="/ContenidoAlbumify/AlbumifyLogo.png" class="logo"></td>
+          <td rowspan="1"><input type="text" placeholder="🔎¿Qué quieres buscar?" class="busqueda"></td>
+          <td rowspan="3">  
+            <a href="/Home/catalogo.php" class="NavMedio"> Catálogo</a>   
+            <a href="/AcercaDe/AcercaDe(NR).html" class="NavMedio2">| Acerca de</a>
+          </td>
+          <td rowspan="3" class="fill"></td>
+          <td rowspan="3">
+          <a href="http://localhost:3000/PaginasUsuario/PerfilUsuario.html" class="NavDer">Mi Perfil</a>
+          </td>
+        </tr>
+        <tr>
+          <td><a href="/HomeTendencias/Home.php" class="TextoNav">| Home</a></td>
+        </tr>
+      </table>
         </nav>
     </header>
     <main>
+        <!-- Información del álbum -->
         <div class="row">
             <div class="col-3">
-                <h1><strong>Utopia</strong></h1>
-                <img width="250" height="250" src="/ContenidoAlbumify/Utopia.jpg">
+                <h1><strong><?= htmlspecialchars($album['nombre']) ?></strong></h1>
+                <img width="250" height="250" src="<?= htmlspecialchars($album['foto']) ?>">
             </div>
             <div class="col-3">
                 <div class="marcorojo">
-                    <a href="https://www.youtube.com/watch?v=qS6ozdhzSVQ&list=PLxA687tYuMWgx4pL55X-MxOzo0rW52UOp" target="_blank">Escuchar en Youtube 
+                    <a href="<?= htmlspecialchars($album['url']) ?>" target="_blank">Escuchar en Youtube 
                         <img id="play" width="25" height="25" src="/ContenidoAlbumify/Albumify-play.png"/></a>
                 </div>
-                <div>   
-                    <p><strong>Artista/grupo: </strong>Travis Scott</p>
-                    <p><strong>Genero: </strong>Pop, Hip hop</p>
-                    <p><strong>Lanzamiento </strong>28 de julio de 2023</p>
-                    <p><strong>Duración: </strong>73:27</p>
+                <div>
+                    <p><strong>Artista/grupo: </strong><?= htmlspecialchars($album['nombre']) ?></p>
+                    <p><strong>Genero: </strong><?= htmlspecialchars($album['idGenero']) ?></p>
+                    <p><strong>Lanzamiento: </strong><?= htmlspecialchars($album['fechaLanzamiento']) ?></p>
                     <p><strong>(24 Calificaciones)</strong></p>
                 </div>
             </div>
-            <div class="col-3">
-            </div>
+            <div class="col-3"></div>
             <div id="califcont" class="col-3">
                 <div>
                     <img height="250" width="250" src="/ContenidoAlbumify/AlbumifyMarco.png">
@@ -93,26 +135,28 @@ if ($resultadoAlbum->num_rows > 0) {
                 </div>
             </div>
         </div>
+
+        <!-- Descripción del álbum -->
         <div class="row">
-            <p><strong>Utopia: </strong>UTOPIA es el cuarto álbum de estudio del DJ estadounidense Travis Scott. 
-                Fue lanzado a través de Cactus Jack Records y Epic Records el 28 de julio de 2023. 
-                El álbum presenta apariciones especiales de Teezo Touchdown, Drake, Playboi Carti, 
-                Beyoncé, Rob49, 21 Savage, The Weeknd, Swae Lee, entre otros.</p>
+            <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Voluptatibus est suscipit quam numquam, sint placeat veniam assumenda! Neque hic quam, tenetur nobis deserunt at facilis perferendis numquam quia praesentium! Nam.</p>
         </div>
+
+        <!-- Sección de reseñas -->
         <div class="row">
-            <iframe src="/Reseñas/Reseñas(NR).html" height="300em" width="800em"></iframe>
+            <iframe src="/Reseñas/Reseñas(NR).php?id=<?= $idAlbumes ?>" height="300em" width="800em"></iframe>
         </div>
     </main>
 
+    <!-- Popup para reseñas -->
     <div class="popup-overlay" id="popupOverlay">
         <div class="popup-content">
             <button class="close-btn" id="closePopup">X</button>
             <h3>Crear Reseña</h3>
-            <form id="reviewForm">
+            <form method="POST">
                 <label for="reviewText">Reseña (300 caracteres máx):</label>
-                <textarea id="reviewText" maxlength="300" required></textarea>
+                <textarea id="reviewText" name="reviewText" maxlength="300" required></textarea>
                 <label for="rating">Calificación (0-10):</label>
-                <input type="number" id="rating" min="0" max="10" required>
+                <input type="number" id="rating" name="rating" min="0" max="10" required>
                 <button type="submit">Enviar</button>
             </form>
         </div>

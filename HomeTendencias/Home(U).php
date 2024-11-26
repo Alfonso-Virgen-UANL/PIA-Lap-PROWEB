@@ -81,7 +81,7 @@ if (!$resultadoAlbumes) {
         <p>Género: <?= htmlspecialchars($album['generoNombre']) ?></p>
         <p>Lanzamiento: <?= htmlspecialchars($album['fechaLanzamiento']) ?></p>
         <p>(376 calificaciones)</p>
-        <a href="/Album/PaginaAlbum(NR).php?id=<?= urlencode($album['idAlbumes']); ?>" class="btn-details">Más detalles</a>
+        <a href="/Album/PaginaAlbum(U).php?id=<?= urlencode($album['idAlbumes']); ?>" class="btn-details">Más detalles</a>
       </div>
     </div>
   <?php endwhile; ?>
