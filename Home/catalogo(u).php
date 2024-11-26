@@ -1,4 +1,6 @@
 <?php
+include 'VerPriv.php';
+verificarPrivilegio("Ver contenido");
 // Conexión a la base de datos
 $host = '127.0.0.1';
 $usuario = 'root';
@@ -104,7 +106,7 @@ $filtroGenero = isset($_POST['genero']) ? $_POST['genero'] : [];
         <?php if ($resultadoAlbumes->num_rows > 0): ?>
           <?php while ($album = $resultadoAlbumes->fetch_assoc()): ?>
             <div class="carousel-item">
-              <a href="/Album/PaginaAlbum(NR).php?id=<?=($album['idAlbumes']);?>">
+              <a href="/Album/PaginaAlbum(U).php?id=<?=($album['idAlbumes']);?>">
                 <img src="<?= htmlspecialchars($album['foto']); ?>" alt="<?= htmlspecialchars($album['nombre']); ?>">
                 <p><?= htmlspecialchars($album['nombre']); ?></p>
               </a>
