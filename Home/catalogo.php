@@ -105,7 +105,7 @@ $filtroGenero = isset($_POST['genero']) ? $_POST['genero'] : [];
         <?php if ($resultadoAlbumes->num_rows > 0): ?>
           <?php while ($album = $resultadoAlbumes->fetch_assoc()): ?>
             <div class="carousel-item">
-              <a href="/Album/PaginaAlbum(NR).php $album['id']; ?>">
+              <a href="/Album/PaginaAlbum(NR).php?id=<?=($album['idAlbumes']);?>">
                 <img src="<?= htmlspecialchars($album['foto']); ?>" alt="<?= htmlspecialchars($album['nombre']); ?>">
                 <p><?= htmlspecialchars($album['nombre']); ?></p>
               </a>

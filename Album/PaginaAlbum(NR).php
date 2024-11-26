@@ -14,7 +14,7 @@ if ($conexion->connect_error) {
 $idAlbumes = isset($_GET['id']) ? intval($_GET['id']) : 0;
 
 // Consulta para obtener los datos del álbum
-$sqlAlbum = "SELECT * FROM albumes WHERE id = $idAlbumes";
+$sqlAlbum = "SELECT * FROM albumes WHERE idAlbumes = $idAlbumes";
 $resultadoAlbum = $conexion->query($sqlAlbum);
 
 // Verificar si el álbum existe
@@ -62,16 +62,16 @@ if ($resultadoAlbum->num_rows > 0) {
         <div class="row">
             <div class="col-3">
                 <h1><strong><?= htmlspecialchars($album['nombre']) ?></strong></h1>
-                <img width="250" height="250" src="foto/<?= htmlspecialchars($album['foto']) ?>" alt="<?= htmlspecialchars($album['nombre']) ?>">
+                <img width="250" height="250" src="<?= htmlspecialchars($album['foto']) ?>" alt="<?= htmlspecialchars($album['nombre']) ?>">
             </div>
             <div class="col-3">
                 <div class="marcorojo">
-                    <a href="<?= htmlspecialchars($album['URL']) ?>" target="_blank">Escuchar en Youtube 
+                    <a href="<?= htmlspecialchars($album['url']) ?>" target="_blank">Escuchar en Youtube 
                         <img id="play" width="25" height="25" src="/ContenidoAlbumify/Albumify-play.png"/></a>
                 </div>
                 <div>   
                     <p><strong>Artista/grupo: </strong><?= htmlspecialchars($album['nombre']) ?></p>
-                    <p><strong>Genero: </strong><?= htmlspecialchars($album['genero']) ?></p>
+                    <p><strong>Genero: </strong><?= htmlspecialchars($album['idGenero']) ?></p>
                     <p><strong>Lanzamiento: </strong><?= htmlspecialchars($album['fechaLanzamiento']) ?></p>
                     <p><strong>Duración: </strong><?= htmlspecialchars($album['duracion']) ?></p>
                     <p><strong>(24 Calificaciones)</strong></p>
@@ -87,7 +87,7 @@ if ($resultadoAlbum->num_rows > 0) {
             </div>
         </div>
         <div class="row">
-            <p><strong><?= htmlspecialchars($album['nombre']) ?>: </strong><?= htmlspecialchars($album['descripcion']) ?></p>
+            <p><strong><?= htmlspecialchars($album['nombre']) ?>: </strong>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Praesentium assumenda quae similique nesciunt explicabo laudantium reprehenderit, a ratione? Eveniet quia quae at dolorem, provident sequi voluptas delectus quibusdam ea repellat?</p>
         </div>
         <div class="row">
             <iframe src="/Reseñas/Reseñas(UyA).html" height="300em" width="800em"></iframe>
