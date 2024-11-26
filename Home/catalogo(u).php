@@ -34,17 +34,16 @@ $filtroGenero = isset($_POST['genero']) ? $_POST['genero'] : [];
           <td rowspan="3"><img src="/ContenidoAlbumify/AlbumifyLogo.png" class="logo"></td>
           <td rowspan="1"><input type="text" placeholder="🔎¿Qué quieres buscar?" class="busqueda"></td>
           <td rowspan="3">  
-            <a href="/Home/catalogo.php" class="NavMedio"> Catálogo</a>   
+            <a href="/Home/catalogo(u).php" class="NavMedio"> Catálogo</a>   
             <a href="/AcercaDe/AcercaDe(NR).html" class="NavMedio2">| Acerca de</a>
           </td>
           <td rowspan="3" class="fill"></td>
           <td rowspan="3">
-            <a href="/Registro e inicio de sesion/Login.html" class="NavDer">Login</a> 
-            <a href="/Registro e inicio de sesion/Registro.html" class="NavDer2">| Registro</a>
+          <a href="http://localhost:3000/PaginasUsuario/PerfilUsuario.html" class="NavDer">Mi Perfil</a>
           </td>
         </tr>
         <tr>
-          <td><a href="/HomeTendencias/Home.php" class="TextoNav">| Home</a></td>
+          <td><a href="/HomeTendencias/Home(U).php" class="TextoNav">| Home</a></td>
         </tr>
       </table>
     </nav>
