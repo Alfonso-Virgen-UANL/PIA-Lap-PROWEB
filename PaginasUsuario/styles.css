@@ -146,7 +146,7 @@ header .logo {
     width: 250px;
     padding: 20px;
     height: calc(100vh - 60px); /* Ajusta la altura quitando la de la barra superior */
-    position: fixed;
+    position: relative;
     top: 167.84px; /* Altura de la barra superior */
     left: 0;
 }
