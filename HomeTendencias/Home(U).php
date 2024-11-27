@@ -58,7 +58,7 @@ if (!$resultadoAlbumes) {
           </td>
           <td rowspan="3" class="fill"></td>
           <td rowspan="3">
-            <a href="http://localhost:3000/PaginasUsuario/PerfilUsuario.html" class="NavDer">Mi Perfil</a>
+            <a href="http://localhost:3000/PaginasUsuario/PerfilUsuario.php" class="NavDer">Mi Perfil</a>
           </td>
         </tr>
         <tr>

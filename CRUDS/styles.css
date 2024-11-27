@@ -12,6 +12,10 @@ main {
     text-align: left;
 }
 
+.reseñas {
+    color:white;
+}
+
 .p1
 {
     color: white;
@@ -143,10 +147,10 @@ header .logo {
     font-family: Arial, sans-serif;
     line-height: 1.6;
     color: #333; 
-    width: 150px;
+    width: 250px;
     padding: 20px;
     height: calc(100vh - 60px); /* Ajusta la altura quitando la de la barra superior */
-    /*position: fixed;*/
+    position: relative;
     top: 167.84px; /* Altura de la barra superior */
     left: 0;
 }
@@ -174,8 +178,7 @@ header .logo {
     padding: 20px;
     margin-top: 60px; /* Altura de la barra superior */
 }
-/* Botón Agregar y Cancelar */
-
+/* Botón Agregar */
 .btn-add {
     background-color: #4CAF50;
     color: white;
@@ -190,21 +193,57 @@ header .logo {
 .btn-add:hover {
     background-color: #45a049;
 }
-.btn-cncl {
-    background-color: #b65833;
-    color: white;
-    padding: 10px 20px;
-    margin-bottom: 20px;
+
+/* Tabla de Usuarios */
+.user-table {
+    width: 100%;
+    border-collapse: collapse;
     margin-top: 20px;
+}
+
+.user-table th, .user-table td {
+    border: 1px solid #000000;
+    padding: 8px;
+    text-align: left;
+}
+
+.user-table th {
+    background-color: #9b8989;
+    color: #333;
+}
+.user-table tr{
+    background-color: #ccc;
+}
+.user-table tr:hover {
+    background-color: #f1f1f1;
+}
+
+/* Botones de acciones */
+.btn-edit, .btn-delete {
+    padding: 5px 10px;
     border: none;
     border-radius: 5px;
     cursor: pointer;
+    margin-right: 5px;
 }
 
-.btn-cncl:hover {
-    background-color: #773921;
+.btn-edit {
+    background-color: #ffc107;
+    color: white;
 }
 
+.btn-edit:hover {
+    background-color: #e0a800;
+}
+
+.btn-delete {
+    background-color: #f44336;
+    color: white;
+}
+
+.btn-delete:hover {
+    background-color: #d32f2f;
+}
 /* Barra superior de gestión */
 h2{
     color: #f1f1f1;
@@ -242,16 +281,42 @@ h2{
 .search-bar .btn-search:hover {
     background-color: #0056b3;
 }
-table.BD {     
-    font-family: "Lucida Sans Unicode", "Lucida Grande", Sans-Serif;
-    font-size: 12px;
-    width: 480px; 
-    text-align: left;    
-    border-collapse: collapse; 
-    background-color: #ffffff;
+
+#perfil {
+    color: white;
+    font-size: 150%;
 }
 
-    
-label{
+.row {
     color: white;
+}
+
+h3 {
+    padding-bottom: 1em;
+    width: 150%;
+    color: white;
+}
+
+#cambcont {
+    margin-left: 6em;
+}
+
+.inp {
+    width: 15em;
+}
+
+#bot {
+    color: white;
+    background-color: rgb(0, 0, 0);
+    border-radius: 15px;
+    border: none;
+    text-align: center;
+    width: 12em;
+    height: 2em;
+    font-family: Arial, sans-serif;
+    margin-left: 1.5em;
+}
+
+.labelconf {
+    padding-left: 1em;
 }

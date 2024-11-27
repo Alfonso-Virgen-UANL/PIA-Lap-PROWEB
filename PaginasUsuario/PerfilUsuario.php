@@ -86,7 +86,7 @@ $resultadoReseñas = $stmtReseñas->get_result();
             <ul>
                 <li><a href="PerfilUsuario.php">Perfil</a></li>
                 <li><a href="ConfPerfilUsuario.php">Configuración de la cuenta</a></li>
-                <li><a href="CrearSolicitud.php">Solicitar un álbum</a></li>
+                <li><a href="SolicitarAlbumUsuario.php">Solicitar un álbum</a></li>
             </ul>
         </aside>
 
