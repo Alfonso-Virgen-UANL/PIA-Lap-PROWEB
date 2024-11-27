@@ -34,15 +34,21 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 $_SESSION['apellido'] = $row['apellido'];
                 $_SESSION['correo'] = $row['correo'];
                 $_SESSION['idRol'] = $row['idRol'];
-
-                // Redirigir al usuario a la página principal o donde sea necesario
-                header('Location: http://localhost:3000/HomeTendencias/Home(U).php');
+            
+                // Redirigir según el rol del usuario
+                if ($row['idRol'] === 1) {
+                    // Si es administrador, redirige a PerfilAdmin.php
+                    header('Location: http://localhost:3000/CRUDS/PerfilAdmin.php');
+                } else {
+                    // Si no, redirige a la página principal de usuario
+                    header('Location: http://localhost:3000/HomeTendencias/Home(U).php');
+                }
                 exit();
             } else {
                 // Contraseña incorrecta
                 $error_message = "Correo o contraseña incorrectos.";
-                
             }
+            
         } else {
             // Usuario no encontrado
             echo "No se encontró el usuario.";
