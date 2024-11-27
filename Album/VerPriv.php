@@ -9,6 +9,9 @@ function verificarPrivilegio($privilegioRequerido) {
     }
 
     $idRol = $_SESSION['idRol'];
+    $idUsuario = $_SESSION['idUsuario'];
+    $nombre = $_SESSION['nombre'];
+    $apellido = $_SESSION['apellido'];
     
     // Lista de privilegios por rol (ajustado a lo que mencionaste)
     $privilegiosPorRol = [

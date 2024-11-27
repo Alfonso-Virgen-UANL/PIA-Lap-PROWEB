@@ -1,6 +1,6 @@
 <?php
 function verificarPrivilegio($privilegioRequerido) {
-    session_start();
+    #session_start();
     
     if (!isset($_SESSION['idRol'])) {
         // Si no hay sesión activa, redirigir a la página de login
